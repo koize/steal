@@ -8,3 +8,8 @@
 .card{
   font-family: 'Noto Serif JP', serif;
 }
+
+
+.form-close{
+  display: block;
+}

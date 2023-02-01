@@ -34,3 +34,9 @@ const showSidenavOptions = () => {
     el.style.display = 'flex';
   });
 };
+
+
+
+$("#sign-up").on("click", function(e) {
+  $("#sign-up-popup").fadeIn(5000)
+});
