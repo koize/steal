@@ -8,3 +8,13 @@
 .card{
   font-family: 'Noto Serif JP', serif;
 }
+.sidenav-item{
+  list-style-type: none;
+  text-align: center;
+}
+.card-text-flower{
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+.card-title-flower{
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
