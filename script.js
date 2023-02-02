@@ -37,6 +37,13 @@ const showSidenavOptions = () => {
 
 
 
-$("#sign-up").on("click", function(e) {
+/*$("#sign-up").on("click", function(e) {
   $("#sign-up-popup").fadeIn(5000)
+});*/
+
+document.querySelector("#sign-up").addEventListener("click", function(){
+  document.querySelector(".popup").classList.add("active");
+});
+document.querySelector(".popup .close-btn").addEventListener("click", function(){
+  document.querySelector(".popup").classList.remove("acitve");
 });
