@@ -125,7 +125,7 @@ function displayFlower(data){
             <img src="${flower.Photo[0].url}" class="card-img-top" alt="CottonV">
             <div class="card-body">
             <h4 class="card-title-flower">${flower.Name}</h4>
-            <p class="card-text-flower">Flowers Used: Cotton Flowers and Baby's Breath </p>
+            <p class="card-text-flower">${flower.Description}</p>
             <a href="#" class="btn btn-primary">Add to Cart</a>
             </div>
         </div>`;
