@@ -102,3 +102,9 @@
   position: absolute;
   float: left;
 }
+.center{
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 2px;
+}
