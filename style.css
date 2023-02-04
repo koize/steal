@@ -98,3 +98,7 @@
   border-radius: 10px;
   cursor: pointer;
 }
+.left{
+  position: absolute;
+  float: left;
+}
