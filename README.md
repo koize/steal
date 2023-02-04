@@ -85,4 +85,4 @@ The purpose of using these fonts was to give off a modern feel. We also didn't w
 
 5. Flower Pot (Marble) : https://www.spotlightstores.com/sg/home-decor/floristry-greenery/floral-containers/botanica-white-terrazzo-planter-pot/BP80574719-white
 
-6. Flower Pot (Hanging) : https://www.ikea.com/sg/en/pcashewaepple-hanging-planter-in-outdoor-white-60468354/
+6. Flower Pot (Hanging) : https://www.ikea.com/sg/en/p/cashewaepple-hanging-planter-in-outdoor-white-60468354/
