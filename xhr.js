@@ -1,4 +1,5 @@
 
+$(document).ready(function(){
 //Airtable variables
 const url = 'https://api.airtable.com/v0';
 const baseid = 'appUlYCnhrd4aThSa';
@@ -8,6 +9,8 @@ const apiKey = 'keyNlBBq7AaqCM48y';
 //Table Ids
 //flower = 'tblb5xIIr65HVMKth';
 //login = 'tbl9r9dgjLVJOTffq';
+
+
 
 
 const getBtn = document.getElementById('login-submit');
@@ -99,25 +102,56 @@ const getItems = () =>{
 
         //Split data to become an array
         let data = responseData.records
+        console.log(data)
+        displayFlower(data)
+
     })
 
     .catch(error => {
         console.log(error)
     })
-}
+};
 
+getItems();
+
+function displayFlower(data){
+
+    data.forEach(data => {
+        
+        const flower = data.fields;
+        console.log(flower.Name);
+        const display = `
+        <div class="card text-center" style="width: 22rem;">
+            <img src="${flower.Photo[0].url}" class="card-img-top" alt="CottonV">
+            <div class="card-body">
+            <h4 class="card-title-flower">${flower.Name}</h4>
+            <p class="card-text-flower">Flowers Used: Cotton Flowers and Baby's Breath </p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>`;
+
+        document.getElementById("flowerDisplay").insertAdjacentHTML('beforeend', display);
+    });
+
+    
+    }
+}
+);
 //getBtn.addEventListener('click', checkData);
 
-const triggers = [
-    'danger',
-  ];
-  const basicInstances = [
-    'alert-danger',
-  ];
-  
-  triggers.forEach((trigger, index) => {
-    let basicInstance = mdb.Alert.getInstance(document.getElementById(basicInstances[index]));
-    document.getElementById(trigger).addEventListener('click', () => {
-      basicInstance.show();
-    });
-  });
+/*<div class="card text-center" style="width: 22rem;">
+      <img src="Products/Valentine (Cotton).jpg" class="card-img-top" alt="CottonV">
+      <div class="card-body">
+        <h4 class="card-title-flower">激励 (Gekirei)</h4>
+        <p class="card-text-flower">Flowers Used: Cotton Flowers and Baby's Breath </p>
+        <a href="#" class="btn btn-primary">Add to Cart</a>
+      </div>
+    </div>*/
+
+
+
+/*`<div class="card-body">
+        <h4 class="card-title-flower">${flower.Name}</h4>
+        <p class="card-text-flower">Flowers Used: Cotton Flowers and Baby's Breath</p>
+        <a href="#" class="btn btn-primary">Add to Cart</a>
+      </div>`;*/
