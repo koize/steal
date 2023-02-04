@@ -1,76 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Hana no Yado</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Hana no Yado</title>
 
-    <script src="https://kit.fontawesome.com/593851244e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/593851244e.js" crossorigin="anonymous"></script>
 
 
-    <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
-  </head>
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+</head>
+
 <body style="background-color: white;">
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <!-- Container wrapper -->
-  <div class="container">
-    <!-- Navbar brand -->
-    <a class="navbar-brand me-2" href="index.html">
-      <img
-        src="Images/logo_trans.png"
-        width="90"
-        alt="Hana no Yado Logo"
-        loading="lazy"
-        style="margin-top: -1px;"
-      />
-    </a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand me-2" href="index.html">
+        <img src="Images/logo_trans.png" width="90" alt="Hana no Yado Logo" loading="lazy" style="margin-top: -1px;" />
+      </a>
 
-    <!-- Toggle button -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarButtonsExample"
-      aria-controls="navbarButtonsExample"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarButtonsExample"
+        aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
 
 
-    <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarButtonsExample">
-      <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="Rewards.html">Rewards</a>
-        </li>
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="Rewards.html">Rewards</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="CS.html">Customer Service</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="CS.html">Customer Service</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="About.html">About</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="About.html">About</a>
+          </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               Shop
-          </a>
+            </a>
 
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="FB.html">Flower Bouquets</a>
 
               <div class="dropdown-divider"></div>
@@ -80,87 +69,91 @@
               <div class="dropdown-divider"></div>
 
               <a class="dropdown-item" href="Special.html">Special Offers</a>
+            </div>
+
+          </li>
+        </ul>
+        <!-- Left links -->
+        <div class="d-flex align-items-center">
+          <a class="btn btn-light btn-rounded px-3" href="ShoppingCart.html" role="button"><i
+              class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+
+        <div id="sign-up" class="d-flex align-items-center">
+          <a class="btn btn-light btn-rounded px-3" data-mdb-toggle="modal" data-mdb-target="#login" role="button"><i
+              class="fa-solid fa-user"></i></a>
+        </div>
+
+
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+
+        <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
+
+          <img class="mb-5 img-fluid" src="images/logo_trans.png">
+
+          <div class="form-outline mb-4">
+            <input type="email" id="getEmail" class="form-control form-control-lg" />
+            <label class="form-label" for="getEmail">Email</label>
           </div>
 
-      </li>
-      </ul>
-      <!-- Left links -->
-      <div class="d-flex align-items-center">
-        <a
-          class="btn btn-light btn-rounded px-3"
-          href="ShoppingCart.html"
-          role="button"
-          ><i class="fa-solid fa-cart-shopping"></i
-        ></a>
-      </div>
+          <div class="form-outline mb-4">
+            <input type="password" id="getPassword" class="form-control form-control-lg" />
+            <label class="form-label" for="getPassword">Password</label>
+          </div>
 
-      <div id="sign-up" class="d-flex align-items-center">
-        <a
-          class="btn btn-light btn-rounded px-3"
-          data-mdb-toggle="modal" 
-          data-mdb-target="#login"
-          role="button"
-          ><i class="fa-solid fa-user"></i
-        ></a>
-      </div>
+          <!-- Checkbox -->
+          <div class="form-check d-flex justify-content-start mb-4">
+            <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+            <label class="form-check-label" for="form1Example3"> Remember password </label>
+          </div>
 
+          <button class="btn btn-primary btn-lg btn-block" id="login-submit" type="submit">Login</button>
 
-    </div>
-    <!-- Collapsible wrapper -->
-  </div>
-  <!-- Container wrapper -->
-</nav>
-<!-- Navbar -->
+          <div class="modal-footer">
 
+            <p class="mb-0">Don't have an account? <a href="#!" class="text-black-50 fw-bold">Sign Up</a>
+            </p>
 
-<!-- Modal -->
-<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      
-      <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
-
-        <img class="mb-5 img-fluid" src="images/logo_trans.png">
-        
-        <div class="form-outline mb-4">
-          <input type="email" id="getEmail" class="form-control form-control-lg" />
-          <label class="form-label" for="getEmail">Email</label>
+          </div>
         </div>
-
-        <div class="form-outline mb-4">
-          <input type="password" id="getPassword" class="form-control form-control-lg" />
-          <label class="form-label" for="getPassword">Password</label>
-        </div>
-
-        <!-- Checkbox -->
-        <div class="form-check d-flex justify-content-start mb-4">
-          <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-          <label class="form-check-label" for="form1Example3"> Remember password </label>
-        </div>
-
-        <button class="btn btn-primary btn-lg btn-block" id="login-submit" type="submit">Login</button>
-
-      <div class="modal-footer">
-
-        <p class="mb-0">Don't have an account? <a href="#!" class="text-black-50 fw-bold">Sign Up</a>
-        </p>
-
-
       </div>
     </div>
   </div>
-</div>
+  <!-- Trigger buttons -->
+  <button type="button" id="danger" class="btn btn-danger m-1">Danger</button>
 
 
+  <!-- Alerts -->
+  <div class="alert fade" id="alert-primary" role="alert" data-mdb-color="primary" data-mdb-position="top-right"
+    data-mdb-stacking="true" data-mdb-width="535px" data-mdb-append-to-body="true" data-mdb-hidden="true"
+    data-mdb-autohide="true" data-mdb-delay="2000">
+    A simple danger alert with
+    <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+  </div>
+  <div class="alert fade" id="alert-warning" role="alert" data-mdb-color="warning" data-mdb-position="top-right"
+    data-mdb-stacking="true" data-mdb-width="535px" data-mdb-width="535px" data-mdb-append-to-body="true"
+    data-mdb-hidden="true" data-mdb-autohide="true" data-mdb-delay="2000">
 
-<!--
+
+    <!--
 <div class="d-flex flex-row flex-wrap justify-content-around m-5">
 
   <div class="card text-center" style="width: 22rem;">
@@ -195,7 +188,7 @@
 </div>
           
 -->
-  
+
     <!-- End your project here-->
 
     <!-- MDB -->
@@ -204,8 +197,8 @@
     <!-- Custom scripts -->
     <script type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
@@ -213,5 +206,6 @@
     <script src="script.js"></script>
     <script src="xhr.js"></script>
     <script src="api.js"></script>
-  </body>
+</body>
+
 </html>

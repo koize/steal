@@ -107,3 +107,17 @@ const getItems = () =>{
 }
 
 //getBtn.addEventListener('click', checkData);
+
+const triggers = [
+    'danger',
+  ];
+  const basicInstances = [
+    'alert-danger',
+  ];
+  
+  triggers.forEach((trigger, index) => {
+    let basicInstance = mdb.Alert.getInstance(document.getElementById(basicInstances[index]));
+    document.getElementById(trigger).addEventListener('click', () => {
+      basicInstance.show();
+    });
+  });
