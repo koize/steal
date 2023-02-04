@@ -2,9 +2,10 @@
 
 ## Introduction
 
-Hana No Yado also known as The Flowering Inn in English is an e-commerce shop selling flower bouquets for special occasions and gardening essentials. The aim of this shop is to deliver spring to customer's doorstep and provide guidance for their gardening journey.
+Hana No Yado also known as The Flowering Inn is an e-commerce shop selling flower bouquets for special occasions and gardening essentials. The aim of this shop is to deliver spring conveniently to your doorstep and provide guidance for your gardening journey.
 
-Disclaimer: All products shown are fictional, references will given below!
+Disclaimer:
+All products shown DO NOT belong to us, references will be given below!
 
 ## Languages Used
 
@@ -13,6 +14,11 @@ Disclaimer: All products shown are fictional, references will given below!
 - SCSS
 - Javascript
 - MD Bootstrap
+
+## Software Used
+
+- Airtable
+- Canva
 
 ## Colours Used
 
@@ -85,4 +91,4 @@ The purpose of using these fonts was to give off a modern feel. We also didn't w
 
 5. Flower Pot (Marble) : https://www.spotlightstores.com/sg/home-decor/floristry-greenery/floral-containers/botanica-white-terrazzo-planter-pot/BP80574719-white
 
-6. Flower Pot (Hanging) : https://www.ikea.com/sg/en/p/cashewaepple-hanging-planter-in-outdoor-white-60468354/
+6. Flower Pot (Hanging) : https://www.ikea.com/sg/en/p cashewaepple-hanging-planter-in-outdoor-white-60468354/
