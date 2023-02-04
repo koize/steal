@@ -90,10 +90,9 @@ const checkLogin = (name, password) =>{
 }
 
 //Get flower
-const getItems = () =>{
-    //Get flower data
-    let table = 'tblb5xIIr65HVMKth';
+const getItems = (table, div) =>{
 
+    //Get flower data
     sendRequest('GET', `${url}/${baseid}/${table}?api_key=${apiKey}`)
 
     .then(responseData => {
@@ -103,7 +102,7 @@ const getItems = () =>{
         //Split data to become an array
         let data = responseData.records
         console.log(data)
-        displayFlower(data)
+        display(data, div)
 
     })
 
@@ -112,9 +111,14 @@ const getItems = () =>{
     })
 };
 
-getItems();
+const tableIds = ["tblo8Jfq2LGvlSsrW", "tblb5xIIr65HVMKth", "tblyQ6O0YQquoSP3A"];
+const divIds = ["specialDisplay", "flowerDisplay", "gardenDisplay"];
 
-function displayFlower(data){
+for (var i = 0; i<tableIds.length; i++){
+    getItems(tableIds[i], divIds[i]);
+}
+
+function display(data, div){
 
     data.forEach(data => {
         
@@ -130,7 +134,7 @@ function displayFlower(data){
             </div>
         </div>`;
 
-        document.getElementById("flowerDisplay").insertAdjacentHTML('beforeend', display);
+        document.getElementById(div).insertAdjacentHTML('beforeend', display);
     });
 
     
