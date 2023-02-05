@@ -11,11 +11,6 @@ const apiKey = 'keyNlBBq7AaqCM48y';
 //login = 'tbl9r9dgjLVJOTffq';
 
 
-
-
-const getBtn = document.getElementById('login-submit');
-
-
 const sendRequest= (method, url, data) => {
     //Allow .then statement
     const promise = new Promise((resolve, reject) => {
@@ -120,6 +115,7 @@ for (var i = 0; i<tableIds.length; i++){
 
 function display(data, div){
 
+    
     data.forEach(data => {
         
         const flower = data.fields;
@@ -135,28 +131,12 @@ function display(data, div){
             </div>
         </div>`;
 
+        //Put data into div
         document.getElementById(div).insertAdjacentHTML('beforeend', display);
     });
 
-    
-    }
 }
-);
-//getBtn.addEventListener('click', checkData);
-
-/*<div class="card text-center" style="width: 22rem;">
-      <img src="Products/Valentine (Cotton).jpg" class="card-img-top" alt="CottonV">
-      <div class="card-body">
-        <h4 class="card-title-flower">激励 (Gekirei)</h4>
-        <p class="card-text-flower">Flowers Used: Cotton Flowers and Baby's Breath </p>
-        <a href="#" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </div>*/
 
 
 
-/*`<div class="card-body">
-        <h4 class="card-title-flower">${flower.Name}</h4>
-        <p class="card-text-flower">Flowers Used: Cotton Flowers and Baby's Breath</p>
-        <a href="#" class="btn btn-primary">Add to Cart</a>
-      </div>`;*/
+}); //End of startup
