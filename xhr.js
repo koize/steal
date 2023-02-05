@@ -125,12 +125,12 @@ function display(data, div){
         const flower = data.fields;
         console.log(flower.Name);
         const display = `
-        <div class="card text-center" style="width: 22rem;">
+        <div class="card text-center flex" style="width: 22rem;">
             <img src="${flower.Photo[0].url}" class="card-img-top" alt="CottonV">
             <div class="card-body">
             <h4 class="card-title-flower">${flower.Name}</h4>
             <p class="card-text-flower">${flower.Description}</p>
-            <h5 class="card-price-flower">$${flower.Price}.00</h5>
+            <h5 class="card-price-flower">$${flower.Price.toFixed(2)}</h5>
             <a href="#" class="btn btn-primary">Add to Cart</a>
             </div>
         </div>`;
