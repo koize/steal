@@ -130,6 +130,7 @@ function display(data, div){
             <div class="card-body">
             <h4 class="card-title-flower">${flower.Name}</h4>
             <p class="card-text-flower">${flower.Description}</p>
+            <h5 class="card-price-flower">$${flower.Price}.00</h5>
             <a href="#" class="btn btn-primary">Add to Cart</a>
             </div>
         </div>`;
