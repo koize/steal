@@ -110,6 +110,32 @@ const tableIds = ["tblo8Jfq2LGvlSsrW", "tblb5xIIr65HVMKth", "tblyQ6O0YQquoSP3A"]
 const divIds = ["specialDisplay", "flowerDisplay", "gardenDisplay"];
 
 for (var i = 0; i<tableIds.length; i++){
+    searchBar(tableIds[i]);
+}
+
+
+function searchBar(table){
+    const Search = document.querySelector["[search]"];
+    sendRequest('GET', `${url}/${baseid}/${table}?api_key=${apiKey}`)
+    .then(responseData => {
+        let products = responseData.records;
+        products.forEach(flowers => {
+            console.log(flowers.fields.Name)
+        })
+    })
+
+    let data = products.records
+
+    Search.addeventListener("input", e => {
+        const value = e.target.value.ToLowerCase()
+        data.fields.Name.forEach(product => {
+            const IsVisible = product.Name.ToLowerCase().includes(value)
+            product.element.classList.toggle("hide", !IsVisible)
+        })
+    });
+}
+
+for (var i = 0; i<tableIds.length; i++){
     getItems(tableIds[i], divIds[i]);
 }
 
@@ -140,3 +166,4 @@ function display(data, div){
 
 
 }); //End of startup
+

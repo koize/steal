@@ -34,7 +34,8 @@
 }
 
 .flex{
-  flex: 1 33%;
+  flex: 1 30%;
+  margin: 15px;
 }
 
 @media (max-width: 720px) {
