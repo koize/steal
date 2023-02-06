@@ -185,13 +185,15 @@ function display(data, div){
         const display = `
         <div item class="card text-center flex" style="width: 22rem;">
             <img src="${flower.Photo[0].url}" class="card-img-top" alt="CottonV">
-            <div class="card-body">
-            <h4 class="card-title-flower">${flower.Name}</h4>
-            <p class="card-text-flower">${flower.Description}</p>
-            <h5 class="card-price-flower">$${flower.Price.toFixed(2)}</h5>
-            <a href="#" class="btn btn-primary">Add to Cart</a>
-            </div>
-            <div class="Id" hidden="hidden">${data.id}</div>
+
+                <div class="card-body">
+                <h4 class="card-title-flower">${flower.Name}</h4>
+                <p class="card-text-flower">${flower.Description}</p>
+                <h5 class="card-price-flower">$${flower.Price.toFixed(2)}</h5>
+                <a href="update" data-id="${data.id}" data-id="${flower.Name}" data-id="${flower.Price}" data- class="btn btn-primary">Add to Cart</a>
+                </div>
+
+            <div data-id="${data.id}" hidden="hidden"></div>
         </div>`;
         
 
@@ -201,6 +203,9 @@ function display(data, div){
     })
     
 }
+
+/**/
+
 }); //End of startup
 
 
