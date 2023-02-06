@@ -84,6 +84,7 @@ const checkLogin = (name, password) =>{
 
 }
 
+
 //Get flower
 const getItems = (table, div) =>{
 
@@ -109,31 +110,41 @@ const getItems = (table, div) =>{
 const tableIds = ["tblo8Jfq2LGvlSsrW", "tblb5xIIr65HVMKth", "tblyQ6O0YQquoSP3A"];
 const divIds = ["specialDisplay", "flowerDisplay", "gardenDisplay"];
 
+/*
 for (var i = 0; i<tableIds.length; i++){
     searchBar(tableIds[i]);
-}
-
+}*/
 
 function searchBar(table){
-    const Search = document.querySelector["[search]"];
+
+    //console.log(item);
+
+
     sendRequest('GET', `${url}/${baseid}/${table}?api_key=${apiKey}`)
     .then(responseData => {
         let products = responseData.records;
         products.forEach(flowers => {
             console.log(flowers.fields.Name)
         })
-    })
 
-    let data = products.records
+        let data = products.records
 
-    Search.addeventListener("input", e => {
-        const value = e.target.value.ToLowerCase()
+        
+
         data.fields.Name.forEach(product => {
             const IsVisible = product.Name.ToLowerCase().includes(value)
             product.element.classList.toggle("hide", !IsVisible)
         })
-    });
-}
+
+
+    })
+    .catch(error =>{
+        console.log(error)
+    })
+
+    
+    };
+
 
 for (var i = 0; i<tableIds.length; i++){
     getItems(tableIds[i], divIds[i]);
@@ -141,13 +152,38 @@ for (var i = 0; i<tableIds.length; i++){
 
 function display(data, div){
 
+    const flowerCard = document.querySelector("[flower-card]")
+    const container = document.getElementById("[flower-container]")
+    /*
+    if (){
+        const container = document.querySelector("[flower-container]")
+    }
+    else if (){
+        const container = document.querySelector("[flower-container]")
+    }
+    */
+    
     
     data.forEach(data => {
         
         const flower = data.fields;
-        console.log(data.id);
+        console.log(flower)
+        /*
+        const card = flowerCard.content.cloneNode(true).children[0]
+        const name = card.querySelector("[data-name]")
+        const description = card.querySelector("[data-description]")
+        const price = card.querySelector("[data-price]")
+
+
+        name.textContent = flower.Name;
+        description.textContent = flower.Description;
+        price.textContent = flower.Price;
+
+        container.append(card)
+
+        */
         const display = `
-        <div class="card text-center flex" style="width: 22rem;">
+        <div item class="card text-center flex" style="width: 22rem;">
             <img src="${flower.Photo[0].url}" class="card-img-top" alt="CottonV">
             <div class="card-body">
             <h4 class="card-title-flower">${flower.Name}</h4>
@@ -157,14 +193,14 @@ function display(data, div){
             </div>
             <div class="Id" hidden="hidden">${data.id}</div>
         </div>`;
+        
 
         //Put data into div
         document.getElementById(div).insertAdjacentHTML('beforeend', display);
-    });
-
+        
+    })
+    
 }
-
-
-
 }); //End of startup
+
 

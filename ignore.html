@@ -95,20 +95,31 @@
 
 
   <!-- Modal -->
-  <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="login" tabindex="-1" aria-labelledby="LogInModal" aria-hidden="true">
 
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
 
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        <div class="container justify-content-center p-3">
+        <!-- Pills navs -->
+        <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+              aria-controls="pills-login" aria-selected="true">Login</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+              aria-controls="pills-register" aria-selected="false">Register</a>
+          </li>
+        </ul>
+      <!-- Pills navs -->
         </div>
 
-
+        <div class="tab-content">
+        <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
         <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
 
-          <img class="mb-5 img-fluid" src="images/logo_trans.png">
+          <img class="mb-5 img-fluid" src="Images/logo-removed.png">
 
           <div class="form-outline mb-4">
             <input type="email" id="getEmail" class="form-control form-control-lg" />
@@ -120,86 +131,54 @@
             <label class="form-label" for="getPassword">Password</label>
           </div>
 
-          <!-- Checkbox -->
-          <div class="form-check d-flex justify-content-start mb-4">
-            <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-            <label class="form-check-label" for="form1Example3"> Remember password </label>
-          </div>
-
           <button class="btn btn-primary btn-lg btn-block" id="login-submit" type="submit">Login</button>
 
-          <div class="modal-footer">
+        </div>
+        </div>
+        
+        <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+          <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
 
-            <p class="mb-0">Don't have an account? <a href="#!" class="text-black-50 fw-bold">Sign Up</a>
-            </p>
+            <img class="mb-5 img-fluid" src="Images/logo-removed.png">
+
+            <div class="form-outline mb-4">
+              <input type="email" id="getName" class="form-control form-control-lg" />
+              <label class="form-label" for="getName">Name</label>
+            </div>
+    
+            <div class="form-outline mb-4">
+              <input type="email" id="getEmail" class="form-control form-control-lg" />
+              <label class="form-label" for="getEmail">Email</label>
+            </div>
+  
+            <div class="form-outline mb-4">
+              <input type="password" id="getPassword" class="form-control form-control-lg" />
+              <label class="form-label" for="getPassword">Password</label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="password" id="repeatPassword" class="form-control form-control-lg" />
+              <label class="form-label" for="repeatPassword">Re-enter your Password</label>
+            </div>
+  
+            <button class="btn btn-primary btn-lg btn-block" id="register-submit" type="submit">Register</button>
 
           </div>
-        </div>
+
       </div>
     </div>
-  </div>
-  </div>
-
-  <div id="specialDisplay" class="d-flex flex-row flex-wrap justify-content-around m-5">
-
-  </div>
-
-  <br>
-  <h1>This is a break</h1>
-  <br>
-
-  <div id="flowerDisplay" class="d-flex flex-row flex-wrap justify-content-around m-5">
-
-  </div>
-
-  <br>
-  <h1>This is a break</h1>
-  <br>
-
-  <div id="gardenDisplay" class="d-flex flex-row flex-wrap justify-content-around m-5">
-
-  </div>
-
-
-
-
-
-
-  <!--
-<div class="d-flex flex-row flex-wrap justify-content-around m-5">
-
-  <div class="card text-center" style="width: 22rem;">
-    <img src="Products/Sunflower.png" class="card-img-top" alt="Sunflower">
-    <div class="card-body">
-      <h4 class="card-title-flower">日光 (Nikko)</h4>
-      <p class="card-text-flower">Flowers Used: Sunflower, Rose, Eustomas and Alstroemeria </p>
-      <a href="#" class="btn btn-primary">Add to Cart</a>
+    </div>
     </div>
   </div>
-
-  <div class="card text-center" style="width: 22rem;">
-    <img src="Products/Tulips (P&W).jpg" class="card-img-top" alt="PWTulips">
-    <div class="card-body">
-      <h4 class="card-title-flower">格調 (Kakucho)</h4>
-      <p class="card-text-flower">Flowers Used: Tulips</p>
-      <a href="#" class="btn btn-primary">Add to Cart</a>
-    </div>
   </div>
 
-  <div class="card text-center" style="width: 22rem;">
-    <img src="Products/White Tulips.png" class="card-img-top" alt="WhiteTulips">
-    <div class="card-body">
-      <h4 class="card-title-flower">優雅 (Yuga)</h4>
-      <p class="card-text-flower">Flowers Used: Tulips </p>
-      <a href="#" class="btn btn-primary">Add to Cart</a>
-    </div>
+  <div>
+    <label for="search">Search</label>
+    <input type="search" id="search" search />
   </div>
 
-  <tbody></tbody>
+  <h1>Peepee</h1>
 
-</div>
-          
--->
 
   <!-- End your project here-->
 
@@ -215,7 +194,7 @@
 
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="test.js"></script>
+  <script src="script.js"></script>
   <script src="xhr.js"></script>
 </body>
 

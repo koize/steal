@@ -1,4 +1,5 @@
 
+/*
 $("#carousel-slider").slick({
     arrows: true,
     infinite: true,
@@ -39,7 +40,7 @@ const showSidenavOptions = () => {
 
 /*$("#sign-up").on("click", function(e) {
   $("#sign-up-popup").fadeIn(5000)
-});*/
+});
 
 document.querySelector("#sign-up").addEventListener("click", function(){
   document.querySelector(".popup").classList.add("active");
@@ -47,3 +48,10 @@ document.querySelector("#sign-up").addEventListener("click", function(){
 document.querySelector(".popup .close-btn").addEventListener("click", function(){
   document.querySelector(".popup").classList.remove("acitve");
 });
+*/
+
+const search = document.querySelector["[search]"];
+search.addEventListener("input", e => {
+  const value = e.target.value
+  console.log(value)
+})
