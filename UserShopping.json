@@ -1,1 +1,1 @@
-{"ShoppingCart" : "Id"[] }
+{"ShoppingCart" : ["Id", "productName", "productPrice", "productDesc", "productPhoto", "quantity"]}
