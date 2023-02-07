@@ -11,28 +11,6 @@ const apiKey = 'keyNlBBq7AaqCM48y';
 //login = 'tbl9r9dgjLVJOTffq';
 
 
-const sendRequest= (method, url, data) => {
-    //Allow .then statement
-    const promise = new Promise((resolve, reject) => {
-
-        const xhr = new XMLHttpRequest();
-        xhr.open(method, url);
-        xhr.setRequestHeader("Content-Type", "application-json");
-        xhr.responseType = "json";
-
-        xhr.onload = () => {
-            resolve(xhr.response)
-        }
-        xhr.onerror = () =>{
-            reject('Something went wrong!')
-        }
-
-        xhr.send(JSON.stringify(data));
-    });
-
-    return promise;
-};
-
 $("#login-submit").on("click", function() {
 
     //e.PreventDefault();
@@ -97,37 +75,34 @@ const checkLogin = (name, password) =>{
 //Get flower
 const getItems = (table, div) =>{
 
-    //Get flower data
-    sendRequest('GET', `${url}/${baseid}/${table}?api_key=${apiKey}`)
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+        method: "get",
+        headers: myHeaders,
+        redirect: "follow",
+        
+    };
 
-    .then(responseData => {
-        //Check if data is received
-        //console.log(responseData);
+    fetch(`${url}/${baseid}/${table}/?api_key=${apiKey}`, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            let data = JSON.parse(result).records
+            console.log(data)
+            display(data, div)
 
-        //Split data to become an array
-        let data = responseData.records
-        console.log(responseData)
-        display(data, div)
-
-    })
-
-    .catch(error => {
-        console.log(error)
-    })
+        })
+        .catch(error => console.log('error', error));
 };
 
-const tableIds = ["tblo8Jfq2LGvlSsrW", "tblb5xIIr65HVMKth", "tblyQ6O0YQquoSP3A"];
+const tableIds = ['tblo8Jfq2LGvlSsrW', 'tblb5xIIr65HVMKth', 'tblyQ6O0YQquoSP3A'];
 const divIds = ["specialDisplay", "flowerDisplay", "gardenDisplay"];
-
-/*
-for (var i = 0; i<tableIds.length; i++){
-    searchBar(tableIds[i]);
-}*/
 
 
 for (var i = 0; i<tableIds.length; i++){
     getItems(tableIds[i], divIds[i]);
 }
+
 
 function display(data, div){
     
@@ -172,83 +147,87 @@ $("#specialDisplay, #flowerDisplay, #gardenDisplay").on("click", ".add", functio
     console.log($(this).data("id"));
 
     for (var i = 0; i < tableIds.length; i++){
-        sendRequest('GET', `${url}/${baseid}/${tableIds[i]}?api_key=${apiKey}`)
-        .then(responseData => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var requestOptions = {
+            method: "get",
+            headers: myHeaders,
+            redirect: "follow",
+            
+        };
 
-        let products = responseData.records;
+        fetch(`${url}/${baseid}/${tableIds[i]}/?api_key=${apiKey}`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                let products = JSON.parse(result).records
 
-        //console.log(tableIds[i])
+                //console.log(tableIds[i])
+                
+                products.forEach(products =>{
+                    if (id == products.id){
         
-        products.forEach(products =>{
-            if (id == products.id){
+                        var fromTable = tableIds[i - 1]
+                        console.log(fromTable)
+        
+                        AddtoCart(id, fromTable)
+                    }
+        
+                })
+            })
 
-                var fromTable = tableIds[i - 1]
-                console.log(fromTable)
-
-                AddtoCart(id, fromTable)
-            }
-
-        })
-    })
+            .catch(error => console.log('error', error));
     }
-
-    
 
     let table = 'tbl9r9dgjLVJOTffq'
 
-    sendRequest('GET', `${url}/${baseid}/${table}?api_key=${apiKey}`)
-    .then(responseData => {
-        let products = responseData.records;
-        console.log(products)
-    })
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+        method: "get",
+        headers: myHeaders,
+        redirect: "follow",
+        
+    };
+
+    fetch(`${url}/${baseid}/${table}/?api_key=${apiKey}`, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            let data = JSON.parse(result).records
+            console.log(data)
+
+        })
+        .catch(error => console.log('error', error));
 
 })
 
 function AddtoCart(Productid, fromTable){
+    let loginTable = 'tbl9r9dgjLVJOTffq'
+    let userid = 'recauwhCAPwXmke8s'
 
-    let table = 'tbl9r9dgjLVJOTffq'
-    let userid = 'recSwm9wIkwvqL8dU'
-
-    if (fromTable == 'tblo8Jfq2LGvlSsrW'){
-        let tableName = "Product : Special Offers"
-    }
-    else if (fromTable == 'tblb5xIIr65HVMKth'){
-        let tableName = "Products : Flowers"
-    }
-    else if (fromTable == "tblyQ6O0YQquoSP3A"){
-        let tableName = "Products : Gardening"
-    }
-
-
-    sendRequest('PUT', `${url}/${baseid}/${table}/${userid}?api_key=${apiKey}`,
-    {
-            "id":"recSwm9wIkwvqL8dU",
-            "createdTime":"2023-01-28T16:05:41.000Z",
-            "fields":{
-                "Password":"123",
-                "Email":"b@gmail.com",
-                "Name":"Pp",
-                "Products : Flowers":["rec0wcoIpYEMdsdE8"],
-                "Products : Gardening":["recHF4yXVUJUTZTdR"],
-                "Product : Special Offers":["recDV5qmmV4cpKCME"]
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+        method: "post",
+        headers: myHeaders,
+        redirect: "follow",
+        body: JSON.stringify([{
+            "id": userid,
+            "fields":
+            {
+                "Flowers":["recOuqJkdC1KaFv3O"],
+                "Gardening":["recHF4yXVUJUTZTdR"],
+                "Special":["recDV5qmmV4cpKCME"]
             }
+          }])     
+    };
+
     
-    })
+    fetch(`${url}/${baseid}/${loginTable}?api_key=${apiKey}`, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 
-
-
-    .then(responseData =>(
-        console.log(responseData)
-    ))
-
-    .catch(error =>(
-        console.log(error)
-    ))
-
-
-}
-
-/**/
+    }
 
 }); //End of startup
 
