@@ -21,8 +21,11 @@ const sendRequest= (method, url, data) => {
 
         xhr.onload = () => {
             resolve(xhr.response)
-
         }
+        xhr.onerror = () =>{
+            reject('Something went wrong!')
+        }
+
         xhr.send(JSON.stringify(data));
     });
 
@@ -65,6 +68,8 @@ const checkLogin = (name, password) =>{
                 //Check if the password is correct
                 if(password == data[i].fields.Password){
                     console.log("Logged In");
+
+                    localStorage.setItem('id', data[i].id)
                     
                 }
                 else{
@@ -117,65 +122,17 @@ for (var i = 0; i<tableIds.length; i++){
     searchBar(tableIds[i]);
 }*/
 
-function searchBar(table){
-
-    //console.log(item);
-
-
-    sendRequest('GET', `${url}/${baseid}/${table}?api_key=${apiKey}`)
-    .then(responseData => {
-        let products = responseData.records;
-        products.forEach(flowers => {
-            console.log(flowers.fields.Name)
-        })
-
-        let data = products.records
-
-        
-
-        data.fields.Name.forEach(product => {
-            const IsVisible = product.Name.ToLowerCase().includes(value)
-            product.element.classList.toggle("hide", !IsVisible)
-        })
-
-
-    })
-    .catch(error =>{
-        console.log(error)
-    })
-
-    
-};
-
 
 for (var i = 0; i<tableIds.length; i++){
     getItems(tableIds[i], divIds[i]);
 }
 
 function display(data, div){
-
-    const flowerCard = document.querySelector("[flower-card]")
-    const container = document.getElementById("[flower-container]")
-    
     
     data.forEach(data => {
         
         const flower = data.fields;
-        //console.log(flower)
-        /*
-        const card = flowerCard.content.cloneNode(true).children[0]
-        const name = card.querySelector("[data-name]")
-        const description = card.querySelector("[data-description]")
-        const price = card.querySelector("[data-price]")
-
-
-        name.textContent = flower.Name;
-        description.textContent = flower.Description;
-        price.textContent = flower.Price;
-
-        container.append(card)
-
-        */
+        
         const display = `
         <div item class="card text-center flex" style="width: 22rem;">
             <img src="${flower.Photo[0].url}" class="card-img-top" alt="CottonV">
@@ -198,27 +155,42 @@ function display(data, div){
     
 }
 
-GetShoppingCart();
+async function isLoggedIn () {
+    const token = store.get('token')
+    if (!token) return false
+  }
 
-function GetShoppingCart(){
-
-    fetch('./UserShopping.json')
-    .then(responseData => {
-        responseData = responseData.json()
-        console.log(responseData)
-    })
-    .catch(error =>{
-        console.log(error)
-    })
-    
-}
 
 $("#specialDisplay, #flowerDisplay, #gardenDisplay").on("click", ".add", function (e) {
+
     e.preventDefault();
     //update our update form values
     let id = $(this).data("id");
 
     console.log($(this).data("id"));
+
+    for (var i = 0; i < tableIds.length; i++){
+        sendRequest('GET', `${url}/${baseid}/${tableIds[i]}?api_key=${apiKey}`)
+        .then(responseData => {
+
+        let products = responseData.records;
+
+        //console.log(tableIds[i])
+        
+        products.forEach(products =>{
+            if (id == products.id){
+
+                var fromTable = tableIds[i - 1]
+                console.log(fromTable)
+
+                AddtoCart(id, fromTable)
+            }
+
+        })
+    })
+    }
+
+    
 
     let table = 'tbl9r9dgjLVJOTffq'
 
@@ -228,38 +200,19 @@ $("#specialDisplay, #flowerDisplay, #gardenDisplay").on("click", ".add", functio
         console.log(products)
     })
 
-
-    AddtoCart(id);
 })
 
-function AddtoCart(id){
+function AddtoCart(Productid, fromTable){
 
+    let table = 'tbl9r9dgjLVJOTffq'
 
-    /*
-    const fs = require('fs')
-
-
-    //check if file exist
-    if (!fs.existsSync("UserShopping.json")) {
-        //create new file if not exist
-        fs.closeSync(fs.openSync("UserShopping.json", 'w'));
-    }
-
-    // read file
-    const file = fs.readFileSync("UserShopping.json")
-    const data = {"id" : id}
-
-    //check if file is empty
-    if (file.length == 0) {
-        //add data to json file
-        fs.writeFileSync("UserShopping.json", JSON.stringify([data]))
-    } else {
-        //append data to jso file
-        const json = JSON.parse(file.toString())
-        //add json element to json object
-        json.push(data);
-        fs.writeFileSync("UserShopping.json", JSON.stringify(data))
-    }*/
+    sendRequest('PUT', `${url}/${baseid}/${table}?api_key=${apiKey}`,
+    {
+        "Name" : Productid
+    })
+    .then(responseData =>(
+        console.log(responseData)
+    ))
 
 
 }
