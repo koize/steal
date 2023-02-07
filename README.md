@@ -19,6 +19,7 @@ All products shown DO NOT belong to us, references will be given below!
 
 - Airtable
 - Canva
+- NoCode API
 
 ## Colours Used
 
@@ -28,6 +29,7 @@ The purpose of using these fonts was to give off a modern feel. We also didn't w
 
 - Noto Serif JP (Nav Bar)
 - Zen Kaku Gothic New (Product cards)
+- Playfair Display (Product Type Titles)
 
 # Credits
 
