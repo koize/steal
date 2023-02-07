@@ -178,6 +178,7 @@ $("#specialDisplay, #flowerDisplay, #gardenDisplay").on("click", ".add", functio
             .catch(error => console.log('error', error));
     }
 
+    
     let table = 'tbl9r9dgjLVJOTffq'
 
     var myHeaders = new Headers();
@@ -197,32 +198,51 @@ $("#specialDisplay, #flowerDisplay, #gardenDisplay").on("click", ".add", functio
 
         })
         .catch(error => console.log('error', error));
-
+    
 })
 
-function AddtoCart(Productid, fromTable){
-    let loginTable = 'tbl9r9dgjLVJOTffq'
-    let userid = 'recauwhCAPwXmke8s'
 
+function AddtoCart(Productid, fromTable){
+
+    //let loginTable = 'tbl9r9dgjLVJOTffq'
+    let userid = 'recPsWz1AQv6r6xmH'
+    var flowers = ["rec0wcoIpYEMdsdE8"]
+    var special = []
+    var gardening = []
+
+    console.log(flowers)
+
+                        
+    if (fromTable == 'tblb5xIIr65HVMKth'){
+        flowers.push(Productid)
+    }
+    else if (fromTable == 'tblo8Jfq2LGvlSsrW'){
+        special.push(Productid)
+
+    }
+    else {
+        gardening.push(Productid)
+    }
+    
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var requestOptions = {
-        method: "post",
+        method: "put",
         headers: myHeaders,
         redirect: "follow",
         body: JSON.stringify([{
             "id": userid,
             "fields":
             {
-                "Flowers":["recOuqJkdC1KaFv3O"],
-                "Gardening":["recHF4yXVUJUTZTdR"],
-                "Special":["recDV5qmmV4cpKCME"]
+                "Special" : special,
+                "Flowers" : flowers,
+                "Gardening" : gardening
             }
           }])     
     };
 
     
-    fetch(`${url}/${baseid}/${loginTable}?api_key=${apiKey}`, requestOptions)
+    fetch(`https://v1.nocodeapi.com/heheheha/airtable/BwYeNkanDmXJJuVy?tableName=Login`, requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
