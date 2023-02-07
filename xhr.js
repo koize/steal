@@ -17,6 +17,7 @@ const sendRequest= (method, url, data) => {
 
         const xhr = new XMLHttpRequest();
         xhr.open(method, url);
+        xhr.setRequestHeader("Content-Type", "application-json");
         xhr.responseType = "json";
 
         xhr.onload = () => {
@@ -46,9 +47,10 @@ $("#login-submit").on("click", function() {
 const checkLogin = (name, password) =>{
     //Table = login 
     let table = 'tbl9r9dgjLVJOTffq';
+    let userid = localStorage.id
 
     //Get login data
-    sendRequest('GET', `${url}/${baseid}/${table}?api_key=${apiKey}`)
+    sendRequest('GET', `${url}/${baseid}/${table}/?api_key=${apiKey}`)
 
     //Log response from airtable, if successful
     .then(responseData => {
@@ -104,7 +106,7 @@ const getItems = (table, div) =>{
 
         //Split data to become an array
         let data = responseData.records
-        console.log(data)
+        console.log(responseData)
         display(data, div)
 
     })
@@ -205,13 +207,42 @@ $("#specialDisplay, #flowerDisplay, #gardenDisplay").on("click", ".add", functio
 function AddtoCart(Productid, fromTable){
 
     let table = 'tbl9r9dgjLVJOTffq'
+    let userid = 'recSwm9wIkwvqL8dU'
 
-    sendRequest('PUT', `${url}/${baseid}/${table}?api_key=${apiKey}`,
+    if (fromTable == 'tblo8Jfq2LGvlSsrW'){
+        let tableName = "Product : Special Offers"
+    }
+    else if (fromTable == 'tblb5xIIr65HVMKth'){
+        let tableName = "Products : Flowers"
+    }
+    else if (fromTable == "tblyQ6O0YQquoSP3A"){
+        let tableName = "Products : Gardening"
+    }
+
+
+    sendRequest('PUT', `${url}/${baseid}/${table}/${userid}?api_key=${apiKey}`,
     {
-        "Name" : Productid
+            "id":"recSwm9wIkwvqL8dU",
+            "createdTime":"2023-01-28T16:05:41.000Z",
+            "fields":{
+                "Password":"123",
+                "Email":"b@gmail.com",
+                "Name":"Pp",
+                "Products : Flowers":["rec0wcoIpYEMdsdE8"],
+                "Products : Gardening":["recHF4yXVUJUTZTdR"],
+                "Product : Special Offers":["recDV5qmmV4cpKCME"]
+            }
+    
     })
+
+
+
     .then(responseData =>(
         console.log(responseData)
+    ))
+
+    .catch(error =>(
+        console.log(error)
     ))
 
 
