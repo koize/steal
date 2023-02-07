@@ -28,46 +28,44 @@ const checkLogin = (name, password) =>{
     let userid = localStorage.id
 
     //Get login data
-    sendRequest('GET', `${url}/${baseid}/${table}/?api_key=${apiKey}`)
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+        method: "get",
+        headers: myHeaders,
+        redirect: "follow",
+        
+    };
 
-    //Log response from airtable, if successful
-    .then(responseData => {
-        //Check if data is received
-        //console.log(responseData);
-
-        //Split data to become an array (but still technically a dictionary)
-        let data = responseData.records
-
-        //Check if user in database
-        for (var i = 0; i < data.length; i++) {
-
-            console.log(data[i]);
+    fetch(`${url}/${baseid}/${table}/?api_key=${apiKey}`, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            let data = JSON.parse(result).records
             
-            //Case sensitive****
-            if (name == data[i].fields.Name){
-                //Check if the password is correct
-                if(password == data[i].fields.Password){
-                    console.log("Logged In");
+            //Check if user in database
+            for (var i = 0; i < data.length; i++) {
 
-                    localStorage.setItem('id', data[i].id)
-                    
-                }
+                console.log(data[i]);
+                
+                //Case sensitive****
+                if (name == data[i].fields.Name && password == data[i].fields.Password){
+                    //Check if the password is correct
+
+                        console.log("Logged In");
+
+                        localStorage.setItem('id', data[i].id)
+                        
+                    }
+
                 else{
-                    console.log("Incorrect password");
-
+                    console.log("Incorrect")
                 }
-            }
-            else{
-                console.log("Incorrect")
-            }
 
       }
 
-    })
-    //Log error if unsuccessful
-    .catch(error => {
-        console.log(error)
-    })
+        })
+        .catch(error => console.log('error', error));
+
 
 }
 
@@ -118,7 +116,7 @@ function display(data, div){
                 <h4 class="card-title-flower">${flower.Name}</h4>
                 <p class="card-text-flower">${flower.Description}</p>
                 <h5 class="card-price-flower">$${flower.Price.toFixed(2)}</h5>
-                <a data-id="${data.id}" class="btn btn-primary add">Add to Cart</a>
+                <a data-id="${data.id}" data-table="${div}" class="btn btn-primary add">Add to Cart</a>
                 </div>
 
             <div data-id="${data.id}" hidden="hidden"></div>
@@ -143,41 +141,23 @@ $("#specialDisplay, #flowerDisplay, #gardenDisplay").on("click", ".add", functio
     e.preventDefault();
     //update our update form values
     let id = $(this).data("id");
+    let tableName = $(this).data("table")
 
     console.log($(this).data("id"));
 
-    for (var i = 0; i < tableIds.length; i++){
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        var requestOptions = {
-            method: "get",
-            headers: myHeaders,
-            redirect: "follow",
-            
-        };
-
-        fetch(`${url}/${baseid}/${tableIds[i]}/?api_key=${apiKey}`, requestOptions)
-            .then(response => response.text())
-            .then(result => {
-                let products = JSON.parse(result).records
-
-                //console.log(tableIds[i])
-                
-                products.forEach(products =>{
-                    if (id == products.id){
-        
-                        var fromTable = tableIds[i - 1]
-                        console.log(fromTable)
-        
-                        AddtoCart(id, fromTable)
-                    }
-        
-                })
-            })
-
-            .catch(error => console.log('error', error));
+    for (var i = 0; i < divIds.length; i++){
+        if (tableName == divIds[0]){
+            var fromTable = tableIds[0]
+        }
+        else if (tableName == divIds[1]){
+            var fromTable = tableIds[1]
+        }
+        else{
+            var fromTable = tableIds[2]
+        }
     }
 
+    AddtoCart(id, fromTable)
     
     let table = 'tbl9r9dgjLVJOTffq'
 
@@ -206,7 +186,7 @@ function AddtoCart(Productid, fromTable){
 
     //let loginTable = 'tbl9r9dgjLVJOTffq'
     let userid = 'recPsWz1AQv6r6xmH'
-    var flowers = ["rec0wcoIpYEMdsdE8"]
+    var flowers = []
     var special = []
     var gardening = []
 
