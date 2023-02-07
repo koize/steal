@@ -65,9 +65,11 @@ const checkLogin = (name, password) =>{
                 //Check if the password is correct
                 if(password == data[i].fields.Password){
                     console.log("Logged In");
+                    
                 }
                 else{
                     console.log("Incorrect password");
+
                 }
             }
             else{
@@ -143,7 +145,7 @@ function searchBar(table){
     })
 
     
-    };
+};
 
 
 for (var i = 0; i<tableIds.length; i++){
@@ -154,20 +156,12 @@ function display(data, div){
 
     const flowerCard = document.querySelector("[flower-card]")
     const container = document.getElementById("[flower-container]")
-    /*
-    if (){
-        const container = document.querySelector("[flower-container]")
-    }
-    else if (){
-        const container = document.querySelector("[flower-container]")
-    }
-    */
     
     
     data.forEach(data => {
         
         const flower = data.fields;
-        console.log(flower)
+        //console.log(flower)
         /*
         const card = flowerCard.content.cloneNode(true).children[0]
         const name = card.querySelector("[data-name]")
@@ -190,7 +184,7 @@ function display(data, div){
                 <h4 class="card-title-flower">${flower.Name}</h4>
                 <p class="card-text-flower">${flower.Description}</p>
                 <h5 class="card-price-flower">$${flower.Price.toFixed(2)}</h5>
-                <a href="update" data-id="${data.id}" data-id="${flower.Name}" data-id="${flower.Price}" data- class="btn btn-primary">Add to Cart</a>
+                <a data-id="${data.id}" class="btn btn-primary add">Add to Cart</a>
                 </div>
 
             <div data-id="${data.id}" hidden="hidden"></div>
@@ -202,6 +196,64 @@ function display(data, div){
         
     })
     
+}
+
+GetShoppingCart();
+
+function GetShoppingCart(){
+
+    fetch('./UserShopping.json')
+    .then(responseData => {
+        responseData = responseData.json()
+        console.log(responseData)
+    })
+    .catch(error =>{
+        console.log(error)
+    })
+    
+}
+
+$("#specialDisplay, #flowerDisplay, #gardenDisplay").on("click", ".add", function (e) {
+    e.preventDefault();
+    //update our update form values
+    let id = $(this).data("id");
+
+    console.log($(this).data("id"));
+
+    AddtoCart(id);
+})
+
+function AddtoCart(id){
+
+    const fs = require('fs')
+
+
+//check if file exist
+    if (!fs.existsSync('student.json')) {
+        //create new file if not exist
+        fs.closeSync(fs.openSync('student.json', 'w'));
+    }
+
+    // read file
+    const file = fs.readFileSync('student.json')
+    const data = {
+        studentName: 'Joe',
+        address: 'abc'
+    }
+
+    //check if file is empty
+    if (file.length == 0) {
+        //add data to json file
+        fs.writeFileSync("student.json", JSON.stringify([data]))
+    } else {
+        //append data to jso file
+        const json = JSON.parse(file.toString())
+        //add json element to json object
+        json.push(data);
+        fs.writeFileSync("student.json", JSON.stringify(data))
+    }
+
+
 }
 
 /**/
