@@ -220,38 +220,46 @@ $("#specialDisplay, #flowerDisplay, #gardenDisplay").on("click", ".add", functio
 
     console.log($(this).data("id"));
 
+    let table = 'tbl9r9dgjLVJOTffq'
+
+    sendRequest('GET', `${url}/${baseid}/${table}?api_key=${apiKey}`)
+    .then(responseData => {
+        let products = responseData.records;
+        console.log(products)
+    })
+
+
     AddtoCart(id);
 })
 
 function AddtoCart(id){
 
+
+    /*
     const fs = require('fs')
 
 
-//check if file exist
-    if (!fs.existsSync('student.json')) {
+    //check if file exist
+    if (!fs.existsSync("UserShopping.json")) {
         //create new file if not exist
-        fs.closeSync(fs.openSync('student.json', 'w'));
+        fs.closeSync(fs.openSync("UserShopping.json", 'w'));
     }
 
     // read file
-    const file = fs.readFileSync('student.json')
-    const data = {
-        studentName: 'Joe',
-        address: 'abc'
-    }
+    const file = fs.readFileSync("UserShopping.json")
+    const data = {"id" : id}
 
     //check if file is empty
     if (file.length == 0) {
         //add data to json file
-        fs.writeFileSync("student.json", JSON.stringify([data]))
+        fs.writeFileSync("UserShopping.json", JSON.stringify([data]))
     } else {
         //append data to jso file
         const json = JSON.parse(file.toString())
         //add json element to json object
         json.push(data);
-        fs.writeFileSync("student.json", JSON.stringify(data))
-    }
+        fs.writeFileSync("UserShopping.json", JSON.stringify(data))
+    }*/
 
 
 }
