@@ -92,7 +92,7 @@
     <!-- Container wrapper -->
 
     <!-- Modal -->
-  <div class="modal fade" id="login" tabindex="-1" aria-labelledby="LogInModal" aria-hidden="true">
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="LogInModal" aria-hidden="true">
 
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -272,6 +272,20 @@
                 </div>
   </section>
 
+  <div id="gameFrame">
+
+    <button class="button" onclick="NewGame()" style="font-size: 30px;">Click to start a new game</button>
+
+    <div id="healthBar"></div>
+    <div class="enemy" id="enemy1" onclick="iShoot(this)"></div>
+    <div class="enemy" id="enemy2" onclick="iShoot(this)"></div>
+    <div class="enemy" id="enemy3" onclick="iShoot(this)"></div>
+    <div class="enemy" id="enemy4" onclick="iShoot(this)"></div>
+    <div class="enemy" id="enemy5" onclick="iShoot(this)"></div>
+    <div class="grass"></div>
+
+  </div>
+
   <!-- Footer -->
   <footer class="text-center text-white">
     <!-- Grid container -->
@@ -353,19 +367,6 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
-  <div id="gameFrame">
-
-    <button class="button" onclick="NewGame()" style="font-size: 30px;">Click to start a new game</button>
-
-    <div id="healthBar"></div>
-    <div class="enemy" id="enemy1" onclick="iShoot(this)"></div>
-    <div class="enemy" id="enemy2" onclick="iShoot(this)"></div>
-    <div class="enemy" id="enemy3" onclick="iShoot(this)"></div>
-    <div class="enemy" id="enemy4" onclick="iShoot(this)"></div>
-    <div class="enemy" id="enemy5" onclick="iShoot(this)"></div>
-    <div class="grass"></div>
-
-  </div>
 
 
   <!-- End your project here-->
