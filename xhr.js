@@ -53,7 +53,7 @@ const checkLogin = (name, password) =>{
 
                         console.log("Logged In");
 
-                        localStorage.setItem('id', data[i].id)
+                        sessionStorage.setItem('id', data[i].id)
                         
                     }
 

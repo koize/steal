@@ -82,10 +82,10 @@ function updateHealthPoints(points){
 
 function NewGame(){
 
-    console.log(localStorage.getItem("id"))
+    console.log(sessionStorage.getItem("id"))
 
-    if (!localStorage.getItem("id")){
-        $("#Login").modal()
+    if (!sessionStorage.getItem("id")){
+        $("#login").modal("show")
     }
     else{
         healthPoints = 100
