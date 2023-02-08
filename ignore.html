@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>Hana no Yado</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="game.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;900&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/mdb.min.css" />
 </head>
 
-<body style="background-color: white;">
+<body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
@@ -90,11 +90,8 @@
       <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
-  </nav>
-  <!-- Navbar -->
 
-
-  <!-- Modal -->
+    <!-- Modal -->
   <div class="modal fade" id="login" tabindex="-1" aria-labelledby="LogInModal" aria-hidden="true">
 
     <div class="modal-dialog modal-dialog-centered">
@@ -167,17 +164,30 @@
 
       </div>
     </div>
+      </div>
+  </nav>
+  <!-- Navbar -->
+
+  
+
+  <div id="gameFrame">
+
+    <div id="healthBar"></div>
+    <div class="enemyContainer">
+      <div class="enemy" id="enemy1" onclick="iShoot(this)"></div>
+      <div class="enemy" id="enemy2" onclick="iShoot(this)"></div>
+      <div class="enemy" id="enemy3" onclick="iShoot(this)"></div>
+      <div class="enemy" id="enemy4" onclick="iShoot(this)"></div>
+      <div class="enemy" id="enemy5" onclick="iShoot(this)"></div>
     </div>
-    </div>
-  </div>
+    
+
+    <div class="grass"></div>
+
+    <button class="button" onclick="NewGame()"> New game</button>
+
   </div>
 
-  <div>
-    <label for="search">Search</label>
-    <input type="search" id="search" search />
-  </div>
-
-  <h1>Peepee</h1>
 
 
   <!-- End your project here-->
@@ -194,8 +204,7 @@
 
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="script.js"></script>
-  <script src="xhr.js"></script>
+  <script src="game.js"></script>
 </body>
 
 </html>
