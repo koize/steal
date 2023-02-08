@@ -69,23 +69,6 @@ const checkLogin = (name, password) =>{
 
 }
 
-async function isLoggedIn () {
-    const token = localStorage.get('token')
-    if (!token) return false 
-  }
-
-async function autoRedirect () {
-    const validLogin = await isLoggedIn()
-    if (!validLogin){
-        let el = document.getElementById('login');
-        el.ariaHidden = "false"
-        console.log(el.ariaHidden);
-    }
-    else{
-
-    }
-}
-
 $("#register-submit").on("click", function() {
 
     let Newname = $("#getNewName").val();
@@ -195,47 +178,51 @@ async function isLoggedIn () {
 
 $("#specialDisplay, #flowerDisplay, #gardenDisplay").on("click", ".add", function (e) {
 
-    e.preventDefault();
-    //update our update form values
-    let id = $(this).data("id");
-    let tableName = $(this).data("table")
-
-    console.log($(this).data("id"));
-
-    for (var i = 0; i < divIds.length; i++){
-        if (tableName == divIds[0]){
-            var fromTable = tableIds[0]
-        }
-        else if (tableName == divIds[1]){
-            var fromTable = tableIds[1]
-        }
-        else{
-            var fromTable = tableIds[2]
-        }
+    if (!sessionStorage.getItem("id")){
+        $("#login").modal("show")
     }
+    else{
+        e.preventDefault();
+        //update our update form values
+        let id = $(this).data("id");
+        let tableName = $(this).data("table")
 
-    AddtoCart(id, fromTable)
-    
-    let table = 'tbl9r9dgjLVJOTffq'
+        console.log($(this).data("id"));
 
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    var requestOptions = {
-        method: "get",
-        headers: myHeaders,
-        redirect: "follow",
+        for (var i = 0; i < divIds.length; i++){
+            if (tableName == divIds[0]){
+                var fromTable = tableIds[0]
+            }
+            else if (tableName == divIds[1]){
+                var fromTable = tableIds[1]
+            }
+            else{
+                var fromTable = tableIds[2]
+            }
+        }
+
+        AddtoCart(id, fromTable)
         
-    };
+        let table = 'tbl9r9dgjLVJOTffq'
 
-    fetch(`${url}/${baseid}/${table}/?api_key=${apiKey}`, requestOptions)
-        .then(response => response.text())
-        .then(result => {
-            let data = JSON.parse(result).records
-            console.log(data)
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var requestOptions = {
+            method: "get",
+            headers: myHeaders,
+            redirect: "follow",
+            
+        };
 
-        })
-        .catch(error => console.log('error', error));
-    
+        fetch(`${url}/${baseid}/${table}/?api_key=${apiKey}`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                let data = JSON.parse(result).records
+                console.log(data)
+
+            })
+            .catch(error => console.log('error', error));
+    }
 })
 
 
