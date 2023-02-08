@@ -22,14 +22,14 @@
   <link rel="stylesheet" href="css/mdb.min.css" />
 </head>
 
-<body style="background-color: white;">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body style="background-color: #fffdf7">
+  <!-- Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(66, 72, 116, 0.8);">
     <!-- Container wrapper -->
     <div class="container">
       <!-- Navbar brand -->
       <a class="navbar-brand me-2" href="index.html">
-        <img src="images/logo-removed.png" width="150" alt="Hana no Yado Logo" loading="lazy"
+        <img src="Images/logo-removed.png" width="150" alt="Hana no Yado Logo" loading="lazy"
           style="margin-top: -1px;" />
       </a>
 
@@ -53,19 +53,15 @@
               aria-haspopup="true" aria-expanded="false">
               Shop
             </a>
-
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="Shop.html#special">Special Offers</a>
-
               <div class="dropdown-divider"></div>
-
               <a class="dropdown-item" href="Shop.html#flowers">Flower Bouquets</a>
-
               <div class="dropdown-divider"></div>
-
               <a class="dropdown-item" href="Shop.html#GE">Gardening Essentials</a>
 
             </div>
+          </li>
 
           <li class="nav-item">
             <a class="nav-link" href="Rewards.html">Rewards</a>
@@ -75,126 +71,107 @@
             <a class="nav-link" href="CS.html">Customer Service</a>
           </li>
 
-          </li>
+
+
         </ul>
         <!-- Left links -->
+
         <div class="d-flex align-items-center">
-          <a class="btn btn-light btn-rounded px-3" href="ShoppingCart.html" role="button"><i
+          <a class="px-3" style="color: white;" href="ShoppingCart.html" role="button"><i
               class="fa-solid fa-cart-shopping fa-lg"></i></a>
         </div>
 
         <div id="sign-up" class="d-flex align-items-center">
-          <a class="btn btn-light btn-rounded px-3" data-mdb-toggle="modal" data-mdb-target="#login" role="button"><i
+          <a class="px-3" style="color: white;" data-mdb-toggle="modal" data-mdb-target="#login" role="button"><i
               class="fa-solid fa-user"></i></a>
         </div>
-
-        <div class="popup">
-          <div class="close-btn">&times;</div>
-          <div class="form">
-            <h2>Log In</h2>
-            <div class="form-element">
-              <label for="email">Email</label>
-              <input type="text" id="email" placeholder="Enter Email">
-            </div>
-            <div class="form-element">
-              <label for="password">Password</label>
-              <input type="text" id="password" placeholder="Enter Password">
-            </div>
-            <div class="form-element">
-              <button>Sign In</button>
-            </div>
-          </div>
-        </div>
-
       </div>
-
-
     </div>
     <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
-
     <!-- Modal -->
-      <!-- Modal -->
-  <div class="modal fade" id="login" tabindex="-1" aria-labelledby="LogInModal" aria-hidden="true">
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="LogInModal" aria-hidden="true">
 
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
 
-        <div class="container justify-content-center p-3">
-        <!-- Pills navs -->
-        <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-          <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
-              aria-controls="pills-login" aria-selected="true">Login</a>
-          </li>
-          <li class="nav-item" role="presentation">
-            <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
-              aria-controls="pills-register" aria-selected="false">Register</a>
-          </li>
-        </ul>
-      <!-- Pills navs -->
-        </div>
-
-        <div class="tab-content">
-        <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-        <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
-
-          <img class="mb-5 img-fluid" src="Images/logo-removed.png">
-
-          <div class="form-outline mb-4">
-            <input type="email" id="getEmail" class="form-control form-control-lg" />
-            <label class="form-label" for="getEmail">Email</label>
+          <div class="container justify-content-center p-3">
+            <!-- Pills navs -->
+            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+                  aria-controls="pills-login" aria-selected="true">Login</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+                  aria-controls="pills-register" aria-selected="false">Register</a>
+              </li>
+            </ul>
+            <!-- Pills navs -->
           </div>
 
-          <div class="form-outline mb-4">
-            <input type="password" id="getPassword" class="form-control form-control-lg" />
-            <label class="form-label" for="getPassword">Password</label>
+          <!--Modal-->
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+              <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
+
+                <img class="mb-5 img-fluid" src="Images/logo-removed.png">
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="getEmail" class="form-control form-control-lg" />
+                  <label class="form-label" for="getEmail">Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="getPassword" class="form-control form-control-lg" />
+                  <label class="form-label" for="getPassword">Password</label>
+                </div>
+
+                <button class="btn btn-primary btn-lg btn-block" id="login-submit" type="submit">Login</button>
+
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+              <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
+
+                <img class="mb-5 img-fluid" src="Images/logo-removed.png">
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="getNewName" class="form-control form-control-lg" />
+                  <label class="form-label" for="getNewName">Name</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="getNewEmail" class="form-control form-control-lg" />
+                  <label class="form-label" for="getNewEmail">Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="getregPassword" class="form-control form-control-lg" />
+                  <label class="form-label" for="getregPassword">Password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="regPassword" class="form-control form-control-lg" />
+                  <label class="form-label" for="regPassword">Re-enter your Password</label>
+                </div>
+
+                <button class="btn btn-primary btn-lg btn-block" id="register-submit" type="submit">Register</button>
+
+              </div>
+
+            </div>
           </div>
-
-          <button class="btn btn-primary btn-lg btn-block" id="login-submit" type="submit">Login</button>
-
         </div>
-        </div>
-        
-        <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-          <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
-
-            <img class="mb-5 img-fluid" src="Images/logo-removed.png">
-
-            <div class="form-outline mb-4">
-              <input type="email" id="getName" class="form-control form-control-lg" />
-              <label class="form-label" for="getName">Name</label>
-            </div>
-    
-            <div class="form-outline mb-4">
-              <input type="email" id="getEmail" class="form-control form-control-lg" />
-              <label class="form-label" for="getEmail">Email</label>
-            </div>
-  
-            <div class="form-outline mb-4">
-              <input type="password" id="getPassword" class="form-control form-control-lg" />
-              <label class="form-label" for="getPassword">Password</label>
-            </div>
-
-            <div class="form-outline mb-4">
-              <input type="password" id="repeatPassword" class="form-control form-control-lg" />
-              <label class="form-label" for="repeatPassword">Re-enter your Password</label>
-            </div>
-  
-            <button class="btn btn-primary btn-lg btn-block" id="register-submit" type="submit">Register</button>
-
-          </div>
-
       </div>
     </div>
     </div>
-    </div>
-  </div>
-  </div>
-      <!--Modal-->
   </nav>
   <!-- Navbar -->
+
+
 
   <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
     <div class="row gx-lg-5 align-items-center mb-5">
@@ -351,6 +328,88 @@
       </div>
   </form>
 
+  <!-- Footer -->
+  <footer class="text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+        <!-- Google -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-auto">
+              <p class="pt-2">
+                <strong>Sign up for updates!</strong>
+              </p>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-5 col-12">
+              <!-- Email input -->
+              <div class="form-outline form-light mb-4 ">
+                <input type="email" id="form5Example21" class="form-control" style="color: white" />
+                <label class="form-label" for="form5Example21" style="color: white">Email address</label>
+              </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-auto">
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-outline-light mb-4">
+                Subscribe
+              </button>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+
+      <!-- Section: Text -->
+      <section class="mb-4">
+        <p>
+          Hana No Yado also known as The Flowering Inn is an e-commerce shop that provides flower
+          bouquets for special occasions and gardening essentials to make gardening more enjoyable.
+          The store aims to conveniently deliver spring to your doorstep and provide a helping
+          hand to your gardening journey.
+        </p>
+      </section>
+      <!-- Section: Text -->
+      <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
 
   <!-- End your project here-->
 
@@ -370,6 +429,7 @@
     integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
+  <script src="xhr.js"></script>
 
 </body>
 

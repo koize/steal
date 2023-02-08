@@ -69,6 +69,23 @@ const checkLogin = (name, password) =>{
 
 }
 
+async function isLoggedIn () {
+    const token = localStorage.get('token')
+    if (!token) return false 
+  }
+
+async function autoRedirect () {
+    const validLogin = await isLoggedIn()
+    if (!validLogin){
+        let el = document.getElementById('login');
+        el.ariaHidden = "false"
+        console.log(el.ariaHidden);
+    }
+    else{
+
+    }
+}
+
 $("#register-submit").on("click", function() {
 
     let Newname = $("#getNewName").val();
@@ -149,14 +166,14 @@ function display(data, div){
         const flower = data.fields;
         
         const display = `
-        <div item class="card text-center flex" style="width: 22rem;">
+        <div item class="card text-center flex" style="width: 22rem; background-color: #F9F9F9;">
             <img src="${flower.Photo[0].url}" class="card-img-top" alt="CottonV">
 
                 <div class="card-body">
                 <h4 class="card-title-flower">${flower.Name}</h4>
                 <p class="card-text-flower">${flower.Description}</p>
                 <h5 class="card-price-flower">$${flower.Price.toFixed(2)}</h5>
-                <a data-id="${data.id}" data-table="${div}" class="btn btn-primary add">Add to Cart</a>
+                <a data-id="${data.id}" data-table="${div}" class="btn btn-primary add" style="background-color: #D6E6F2; color: black;">Add to Cart</a>
                 </div>
 
             <div data-id="${data.id}" hidden="hidden"></div>
