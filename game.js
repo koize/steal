@@ -1,4 +1,5 @@
-const start = Date.now();
+
+calculateDist();
 
 function iShoot(enemy){
 
@@ -8,13 +9,9 @@ function iShoot(enemy){
     if (!livingEnemies().length)
     {
         alert("You win")
-        const end = Date.now();
         var time = start - end
 
-        checkReward(time);
-
-        document.querySelector("#healthBar").style.display= "none";
-        document.querySelector(".button").style.display= "block";
+        window.location.reload();
     }
 }
 
@@ -23,7 +20,7 @@ function enemyAttacks(enemy){
     enemy.classList.add("showing")
     setTimeout( ()=>{
         enemyShoots(enemy);
-    }, 1000)
+    }, 2000)
 
     setTimeout( ()=> {
         enemy.classList.remove("showing");
@@ -32,14 +29,16 @@ function enemyAttacks(enemy){
 
 function enemyShoots(enemy){
 
+
     if (!enemy.classList.contains("dead"))
     {
         enemy.classList.add("shooting")
         updateHealthPoints(healthPoints - 20)
 
+
         setTimeout( ()=>{
             enemy.classList.remove("shooting")
-        }, 1000)
+        }, 200)
     }
 }
 
@@ -48,9 +47,7 @@ function livingEnemies() {
 }
 
 function randomEnemyAttacks(){
-    if (healthPoints < 1){
-        return;
-    }
+
 
     var randomEnemyNo = Math.random() * livingEnemies().length;
     randomEnemyNo = Math.floor(randomEnemyNo)
@@ -77,23 +74,13 @@ function updateHealthPoints(points){
     if (healthPoints < 1){
 
         alert("game over!")
-        document.querySelector("#healthBar").style.display= "none";
-        document.querySelector(".button").style.display= "block";
+        window.location.reload();
 
     }
 
 }
 
 function NewGame(){
-
-    if (!livingEnemies().length)
-    {
-        const elements = document.querySelectorAll('*');
-
-        elements.forEach((element) => {
-            element.classList.remove('dead');
-        });
-    }
 
     healthPoints = 100
     updateHealthPoints(healthPoints)
@@ -103,8 +90,20 @@ function NewGame(){
     document.querySelector("#healthBar").style.display= "block";
 }
 
-function checkReward(time){
+function calculateDist(){
 
+    var frameWidth = document.getElementById("gameFrame").offsetWidth;
+    console.log(frameWidth)
+
+    var section = frameWidth/10
+    console.log(section)
+
+    document.getElementById("enemy1").style.left=`${section}px`
+    document.getElementById("enemy2").style.left=`${3 * section}px`
+    document.getElementById("enemy3").style.left=`${5 * section}px`
+    document.getElementById("enemy4").style.left=`${7 * section}px`
+    document.getElementById("enemy5").style.left=`${9 * section}px`
 }
+
 
  
