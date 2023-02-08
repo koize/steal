@@ -73,11 +73,13 @@ $("#register-submit").on("click", function() {
 
     let name = $("#getName").val();
     let email = $("#getEmail").val();
-    let password = $("#RegPass").val(); 
-    console.log(password);
-    console.log($("#repeatPassword"));
-    if ($("#repeatPassword").val() == password){
-        let repeatPassword = $("#repeatPassword").val();
+    let password = $("#regPassword").val(); 
+
+    //console.log(password);
+    //console.log($("#getregPassword").val());
+
+    if ($("#getregPassword").val() == password){
+        let repeatPassword = $("#getregPassword").val()
         console.log("Registered successfully");
     }
     else{
