@@ -71,38 +71,43 @@ const checkLogin = (name, password) =>{
 
 $("#register-submit").on("click", function() {
 
-    let name = $("#getName").val();
-    let email = $("#getEmail").val();
-    let password = $("#regPassword").val(); 
-
-    //console.log(password);
-    //console.log($("#getregPassword").val());
-
-    if ($("#getregPassword").val() == password){
-        let repeatPassword = $("#getregPassword").val()
+    let Newname = $("#getNewName").val();
+    let Newemail = $("#getNewEmail").val();
+    let Newpassword = $("#regPassword").val(); 
+    let repPassword = $("#getregPassword").val();
+    if (repPassword == Newpassword){
         console.log("Registered successfully");
     }
     else{
         console.log("Both passwords do not match");
     }
+
+    registerUser(Newname, Newemail, Newpassword);
 })
 
-/*const registerUser = (name, email, password) =>{
+function registerUser(name, email, password){
     //Table = login 
     let table = 'tbl9r9dgjLVJOTffq';
 
-    //Get login data
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var requestOptions = {
         method: "post",
         headers: myHeaders,
         redirect: "follow",
+        body: JSON.stringify([{
+                "Name" : name,
+                "Email" : email,
+                "Password" : password
+          }])   
         
     };
 
     fetch(`${url}/${baseid}/${table}/?api_key=${apiKey}`, requestOptions)
-}*/
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));  
+}
 
 
 //Get flower
