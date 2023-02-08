@@ -9,8 +9,8 @@ function iShoot(enemy){
     if (!livingEnemies().length)
     {
         alert("You win")
-        var time = start - end
 
+        Reward();
         window.location.reload();
     }
 }
@@ -82,12 +82,19 @@ function updateHealthPoints(points){
 
 function NewGame(){
 
-    healthPoints = 100
-    updateHealthPoints(healthPoints)
+    console.log(localStorage.getItem("id"))
 
-    randomEnemyAttacks();
-    document.querySelector(".button").style.display= "none";
-    document.querySelector("#healthBar").style.display= "block";
+    if (!localStorage.getItem("id")){
+        $("#Login").modal()
+    }
+    else{
+        healthPoints = 100
+        updateHealthPoints(healthPoints)
+
+        randomEnemyAttacks();
+        document.querySelector(".button").style.display= "none";
+        document.querySelector("#healthBar").style.display= "block";
+    }
 }
 
 function calculateDist(){
@@ -103,6 +110,36 @@ function calculateDist(){
     document.getElementById("enemy3").style.left=`${5 * section}px`
     document.getElementById("enemy4").style.left=`${7 * section}px`
     document.getElementById("enemy5").style.left=`${9 * section}px`
+}
+
+
+function Reward(){
+    number = Math.floor(Math.random() * 100);
+    if(number == 1){
+        alert("Congratulations, you have obtained a discount voucher!")
+    }
+    /*
+    let Logtable = 'tbl9r9dgjLVJOTffq'
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+        method: "put",
+        headers: myHeaders,
+        redirect: "follow",
+        body: JSON.stringify([{
+            "id": userid,
+            "fields":
+            {
+                "Discount" : []
+            }
+          }])     
+    };
+    fetch(`${url}/${baseid}/${Logtable}/?api_key=${apiKey}`, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    */
 }
 
 

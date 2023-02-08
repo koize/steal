@@ -3,7 +3,7 @@
     justify-content: space-around;
 
     background-color: skyblue;
-    height: 600px;
+    height: 800px;
     max-width: 100%;
     margin: auto;
     position: relative;
@@ -20,6 +20,8 @@
     height: 20px;
     width: 100%;
     background-color: red;
+    border-radius: 150px;
+
     transition: width 2s;
 }
 
@@ -29,8 +31,6 @@ button {
 
     border: 0;
     box-shadow: none;
-
-    font-size: 5em;
     letter-spacing: -1px;
 
     opacity: 0.5;
