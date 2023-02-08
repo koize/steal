@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>Hana no Yado</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="game.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;900&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/mdb.min.css" />
 </head>
 
-<body style="background-color: white;">
+<body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
@@ -90,94 +90,107 @@
       <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
-  </nav>
-  <!-- Navbar -->
 
+    <!-- Modal -->
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="LogInModal" aria-hidden="true">
 
-  <!-- Modal -->
-  <div class="modal fade" id="login" tabindex="-1" aria-labelledby="LogInModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
 
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-
-        <div class="container justify-content-center p-3">
-          <!-- Pills navs -->
-          <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-            <li class="nav-item" role="presentation">
-              <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
-                aria-controls="pills-login" aria-selected="true">Login</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
-                aria-controls="pills-register" aria-selected="false">Register</a>
-            </li>
-          </ul>
-          <!-- Pills navs -->
-        </div>
-
-        <div class="tab-content">
-          <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-            <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
-
-              <img class="mb-5 img-fluid" src="Images/logo-removed.png">
-
-              <div class="form-outline mb-4">
-                <input type="email" id="getEmail" class="form-control form-control-lg" />
-                <label class="form-label" for="getEmail">Email</label>
-              </div>
-
-              <div class="form-outline mb-4">
-                <input type="password" id="getPassword" class="form-control form-control-lg" />
-                <label class="form-label" for="getPassword">Password</label>
-              </div>
-
-              <button class="btn btn-primary btn-lg btn-block" id="login-submit" type="submit">Login</button>
-
-            </div>
+          <div class="container justify-content-center p-3">
+            <!-- Pills navs -->
+            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+                  aria-controls="pills-login" aria-selected="true">Login</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+                  aria-controls="pills-register" aria-selected="false">Register</a>
+              </li>
+            </ul>
+            <!-- Pills navs -->
           </div>
 
-          <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-            <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+              <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
 
-              <img class="mb-5 img-fluid" src="Images/logo-removed.png">
+                <img class="mb-5 img-fluid" src="Images/logo-removed.png">
 
-              <div class="form-outline mb-4">
-                <input type="email" id="getName" class="form-control form-control-lg" />
-                <label class="form-label" for="getName">Name</label>
+                <div class="form-outline mb-4">
+                  <input type="email" id="getEmail" class="form-control form-control-lg" />
+                  <label class="form-label" for="getEmail">Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="getPassword" class="form-control form-control-lg" />
+                  <label class="form-label" for="getPassword">Password</label>
+                </div>
+
+                <button class="btn btn-primary btn-lg btn-block" id="login-submit" type="submit">Login</button>
+
               </div>
-
-              <div class="form-outline mb-4">
-                <input type="email" id="getEmail" class="form-control form-control-lg" />
-                <label class="form-label" for="getEmail">Email</label>
-              </div>
-
-              <div class="form-outline mb-4">
-                <input type="password" id="getPassword" class="form-control form-control-lg" />
-                <label class="form-label" for="getPassword">Password</label>
-              </div>
-
-              <div class="form-outline mb-4">
-                <input type="password" id="repeatPassword" class="form-control form-control-lg" />
-                <label class="form-label" for="repeatPassword">Re-enter your Password</label>
-              </div>
-
-              <button class="btn btn-primary btn-lg btn-block" id="register-submit" type="submit">Register</button>
-
             </div>
 
+            <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+              <div class="card-body p-5 text-center" style="font-family:Arial, Helvetica, sans-serif">
+
+                <img class="mb-5 img-fluid" src="Images/logo-removed.png">
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="getName" class="form-control form-control-lg" />
+                  <label class="form-label" for="getName">Name</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="getEmail" class="form-control form-control-lg" />
+                  <label class="form-label" for="getEmail">Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="getPassword" class="form-control form-control-lg" />
+                  <label class="form-label" for="getPassword">Password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="repeatPassword" class="form-control form-control-lg" />
+                  <label class="form-label" for="repeatPassword">Re-enter your Password</label>
+                </div>
+
+                <button class="btn btn-primary btn-lg btn-block" id="register-submit" type="submit">Register</button>
+
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+
+
+  <div id="gameFrame">
+
+    <div id="healthBar"></div>
+    <div class="enemyContainer">
+      <div class="enemy" id="enemy1" onclick="iShoot(this)"></div>
+      <div class="enemy" id="enemy2" onclick="iShoot(this)"></div>
+      <div class="enemy" id="enemy3" onclick="iShoot(this)"></div>
+      <div class="enemy" id="enemy4" onclick="iShoot(this)"></div>
+      <div class="enemy" id="enemy5" onclick="iShoot(this)"></div>
+    </div>
+
+
+    <div class="grass"></div>
+
+    <button class="button" onclick="NewGame()"> New game</button>
+
   </div>
 
-  <div>
-    <label for="search">Search</label>
-    <input type="search" id="search" search />
-  </div>
-
-  <h1>Peepee</h1>
 
 
   <!-- End your project here-->
@@ -194,8 +207,7 @@
 
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="script.js"></script>
-  <script src="xhr.js"></script>
+  <script src="game.js"></script>
 </body>
 
 </html>

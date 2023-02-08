@@ -9,6 +9,7 @@
   <link rel="icon" href="Images/translogo.png" type="image/x-icon">
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="game.cs">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;900&display=swap" rel="stylesheet">
@@ -351,6 +352,20 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
+  <div id="gameFrame">
+
+    <button class="button" onclick="NewGame()"> New game</button>
+
+    <div id="healthBar"></div>
+    <div class="enemy" id="enemy1" onclick="iShoot(this)"></div>
+    <div class="enemy" id="enemy2" onclick="iShoot(this)"></div>
+    <div class="enemy" id="enemy3" onclick="iShoot(this)"></div>
+    <div class="enemy" id="enemy4" onclick="iShoot(this)"></div>
+    <div class="enemy" id="enemy5" onclick="iShoot(this)"></div>
+    <div class="grass"></div>
+
+  </div>
+
 
   <!-- End your project here-->
 
@@ -368,6 +383,7 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="xhr.js"></script>
+  <script src="game.js"></script>
 </body>
 
 </html>
