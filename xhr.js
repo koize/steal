@@ -170,12 +170,6 @@ function display(data, div){
     
 }
 
-async function isLoggedIn () {
-    const token = store.get('token')
-    if (!token) return false
-  }
-
-
 $("#specialDisplay, #flowerDisplay, #gardenDisplay").on("click", ".add", function (e) {
 
     if (!sessionStorage.getItem("id")){
