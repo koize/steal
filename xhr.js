@@ -127,7 +127,7 @@ const getItems = (table, div) =>{
         .then(result => {
             let data = JSON.parse(result).records
             console.log(data)
-            display(data, div)
+            displayProducts(data, div)
 
         })
         .catch(error => console.log('error', error));
@@ -142,7 +142,7 @@ for (var i = 0; i<tableIds.length; i++){
 }
 
 
-function display(data, div){
+function displayProducts(data, div){
     
     data.forEach(data => {
         
@@ -267,5 +267,6 @@ function AddtoCart(Productid, fromTable){
         .catch(error => console.log('error', error));
 
     }
+
 
 }); //End of startup

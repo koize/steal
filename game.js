@@ -118,29 +118,56 @@ function Reward(){
     if(number == 1){
         alert("Congratulations, you have obtained a discount voucher!")
     }
-    /*
-    let Logtable = 'tbl9r9dgjLVJOTffq'
 
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    var requestOptions = {
-        method: "put",
-        headers: myHeaders,
-        redirect: "follow",
-        body: JSON.stringify([{
-            "id": userid,
-            "fields":
-            {
-                "Discount" : []
-            }
-          }])     
-    };
-    fetch(`${url}/${baseid}/${Logtable}/?api_key=${apiKey}`, requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-    */
+    else{
+        let reTable = 'tbl8jsXKd32jBngLA'
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var requestOptions = {
+            method: "get",
+            headers: myHeaders,
+            redirect: "follow", 
+
+        };
+        fetch(`${url}/${baseid}/${reTable}/?api_key=${apiKey}`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                let data = JSON.parse(result).records
+                updateLogin(data)
+            })
+            .catch(error => console.log('error', error));
+        }
 }
+
+function updateLogin(code){
+
+    let reTable = 'tbl8jsXKd32jBngLA'
+    let userid = sessionStorage.getItem("id");
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var requestOptions = {
+            method: "put",
+            headers: myHeaders,
+            redirect: "follow", 
+            body: JSON.stringify([{
+                "id": userid,
+                "fields": {
+                    "discount" : data.Code
+                }
+            }])
+
+        };
+        fetch(`${url}/${baseid}/${reTable}/?api_key=${apiKey}`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                let data = JSON.parse(result).records
+                updateLogin(data)
+            })
+            .catch(error => console.log('error', error));
+}
+
 
 
  
