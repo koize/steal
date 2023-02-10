@@ -78,7 +78,6 @@ function displayCart(table, id){
                 const flower = data.fields;
                 
                 const display = `
-        
                 <div class="d-flex align-items-center mb-5">
                 <div class="flex-shrink-0">
                   <img src="${flower.Photo[0].url}" class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
@@ -105,7 +104,7 @@ function displayCart(table, id){
 
               totalPrice += flower.Price
                 //Put data into div
-                document.getElementById("cart").insertAdjacentHTML('beforeend', display);
+                document.getElementById("cart").insertAdjacentHTML('afterend', display);
                 }
             })
             const CalTotal = `
