@@ -1,5 +1,52 @@
+const url = 'https://api.airtable.com/v0';
+const baseid = 'appUlYCnhrd4aThSa';
+const token = 'patAS4wp6LrawbyJe.0f7be9909c4a041087bdcacd6016a8ba379a4cd07e3676ad65bad3af2631ebd5';
+const apiKey = 'keyNlBBq7AaqCM48y';
+const userid = sessionStorage.getItem("id");
 
 calculateDist();
+Codes();
+
+function Codes(){
+
+
+let loginTable = 'tbl9r9dgjLVJOTffq'
+
+console.log(userid)
+
+
+
+
+var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var requestOptions = {
+            method: "get",
+            headers: myHeaders,
+            redirect: "follow", 
+        };
+        fetch(`${url}/${baseid}/${loginTable}/${userid}?api_key=${apiKey}`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                let data = JSON.parse(result)
+
+                console.log(data)
+
+                if(data.fields.Discount[0]){
+                    console.log("yes")
+                    display = `
+                    <div>
+                    <h3>Reedemable codes: </h3>
+                    <p>${data.fields.DiscName}<br> 
+                    ${data.fields.Code}</p>
+                    </div>`
+
+                    document.getElementById("codes").insertAdjacentHTML('beforeend', display);
+                }
+
+            })
+            .catch(error => console.log('error', error));
+        }
+
 
 function iShoot(enemy){
 
@@ -11,7 +58,7 @@ function iShoot(enemy){
         alert("You win!")
 
         Reward();
-        window.location.reload();
+        //window.location.reload();
     }
 }
 
@@ -116,10 +163,12 @@ function calculateDist(){
 function Reward(){
     number = Math.floor(Math.random() * 100);
     if(number == 1){
-        alert("Congratulations, you have obtained a discount voucher!")
+        alert("You did not gain a voucher!")
     }
 
     else{
+        alert("Congratulations, you have obtained a discount voucher!")
+        //Rewards table
         let reTable = 'tbl8jsXKd32jBngLA'
 
         var myHeaders = new Headers();
@@ -134,7 +183,13 @@ function Reward(){
             .then(response => response.text())
             .then(result => {
                 let data = JSON.parse(result).records
-                updateLogin(data)
+                //console.log(data)
+                var discount = Math.floor(Math.random() * 2)
+                //console.log(data[discount].id)
+
+                var codes = data[discount].Discount
+
+                updateLogin(data[discount])
             })
             .catch(error => console.log('error', error));
         }
@@ -142,8 +197,8 @@ function Reward(){
 
 function updateLogin(code){
 
-    let reTable = 'tbl8jsXKd32jBngLA'
-    let userid = sessionStorage.getItem("id");
+    //let loginTable = 'tbl9r9dgjLVJOTffq'
+
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -154,20 +209,16 @@ function updateLogin(code){
             body: JSON.stringify([{
                 "id": userid,
                 "fields": {
-                    "discount" : data.Code
+                    "Discount" : [code.id]
                 }
             }])
 
         };
-        fetch(`${url}/${baseid}/${reTable}/?api_key=${apiKey}`, requestOptions)
+        fetch(`https://v1.nocodeapi.com/heheheha/airtable/BwYeNkanDmXJJuVy?tableName=Login`, requestOptions)
             .then(response => response.text())
             .then(result => {
                 let data = JSON.parse(result).records
-                updateLogin(data)
             })
             .catch(error => console.log('error', error));
 }
 
-
-
- 
