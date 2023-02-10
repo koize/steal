@@ -11,16 +11,23 @@ const apiKey = 'keyNlBBq7AaqCM48y';
 //login = 'tbl9r9dgjLVJOTffq';
 
 
+
 $("#login-submit").on("click", function() {
+    if (sessionStorage.getItem("id")){
+        alert("You are already logged in!")
+    }
+    else{
 
     //e.PreventDefault();
     let name = $("#getEmail").val();
     let password = $("#getPassword").val();
 
     console.log(name);
-    
+        
     checkLogin(name, password);
+    }
 })
+
 
 const checkLogin = (name, password) =>{
     //Table = login 
@@ -54,6 +61,7 @@ const checkLogin = (name, password) =>{
                         console.log("Logged In");
 
                         sessionStorage.setItem('id', data[i].id)
+                        alert("You have been logged in!")
                         
                     }
 
