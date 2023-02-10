@@ -30,7 +30,7 @@ var myHeaders = new Headers();
                 console.log(data)
 
                 if(data.fields.Discount[0]){
-                    console.log("yes")
+                    //console.log("yes")
                     display = `
                     <div>
                     <h3>Reedemable discount: </h3>

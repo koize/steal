@@ -5,11 +5,9 @@ const apiKey = 'keyNlBBq7AaqCM48y';
 
 
 let Logtable = "tbl9r9dgjLVJOTffq"
-var userid = "recPsWz1AQv6r6xmH"
-
+var userid = sessionStorage.getItem("id")
 //Special then flower then garden
 const tableIds = ['tblo8Jfq2LGvlSsrW', 'tblb5xIIr65HVMKth', 'tblyQ6O0YQquoSP3A'];
-
 
 
 const getCart = (table) =>{
@@ -28,19 +26,36 @@ const getCart = (table) =>{
         .then(result => {
             let data = JSON.parse(result)
             console.log(data)
+            
+            let Price = 0;
 
             if (data.fields.Special){
                 data.fields.Special.forEach(flower => {
-                    displayCart(tableIds[0], flower)
-                });
-                
+                  displayCart(tableIds[0], flower)
+                  Price = Price + parseInt(sessionStorage.getItem("price"))
+                  console.log(Price)
+                  
+                });                
             }
-            else if (data.fields.Flowers){
-                displayCart(tableIds[1], data.Flowers)
+            if (data.fields.Flowers){
+              data.fields.Flowers.forEach(flower => {
+
+                displayCart(tableIds[1], flower)
+                Price = Price + parseInt(sessionStorage.getItem("price"))
+              });
             }
-            else{
-                displayCart(tableIds[2], data.Gardening)
+            if(data.fields.Gardening){
+              data.fields.Gardening.forEach(flower => {
+
+                displayCart(tableIds[2], flower)
+                Price = Price + parseInt(sessionStorage.getItem("price"))
+              });
+
             }
+
+            console.log(Price)
+
+            calcPrice(Price)
 
         })
         .catch(error => console.log('error', error));
@@ -69,8 +84,6 @@ function displayCart(table, id){
             console.log(data)
             console.log(id)
             
-            var totalPrice = 0;
-
             data.forEach(data => {
 
                 if(data.id == id){
@@ -93,15 +106,66 @@ function displayCart(table, id){
                 </div>
               </div>`;
 
-              totalPrice += flower.Price
                 //Put data into div
                 document.getElementById("cart").insertAdjacentHTML('afterend', display);
+                //console.log(flower.Price)
+                
+                sessionStorage.setItem("price", flower.Price);
                 }
+
+
             })
-            const CalTotal = `
-                    <h5 class="fw-bold mb-0">$${totalPrice.toFixed(2)}</h5>
-                  `;
-                  document.getElementById("total").insertAdjacentHTML('beforeend', CalTotal);
+
+            
         })
         .catch(error => console.log('error', error));
+}
+
+function calcPrice(price){
+  let table = 'tbl9r9dgjLVJOTffq'
+
+
+  var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+        method: "get",
+        headers: myHeaders,
+        redirect: "follow",
+        
+    };
+
+    fetch(`${url}/${baseid}/${table}/${userid}/?api_key=${apiKey}`, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        let data = JSON.parse(result)
+
+        if(data.fields.Discount){
+
+          var disc = data.fields.Code[0]
+
+          var discount = price * disc
+          price = price - discount
+
+          const CalTotal = `
+          <h5 class="fw-bold mb-0">$${price.toFixed(2)}</h5>
+          `;
+          const disTotal = `
+          <h5 class="fw-bold mb-0">$${discount.toFixed(2)}</h5>
+          `;
+        document.getElementById("total").insertAdjacentHTML('beforeend', CalTotal);
+        document.getElementById("discount").insertAdjacentHTML('beforeend', disTotal);
+        
+
+        }
+
+    else{
+      const CalTotal = `
+          <h5 class="fw-bold mb-0">$${price.toFixed(2)}</h5>`;
+
+          document.getElementById("total").insertAdjacentHTML('beforeend', CalTotal);
+
+    }
+
+    sessionStorage.removeItem("price")
+    })
 }
