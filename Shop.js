@@ -89,15 +89,6 @@ function displayCart(table, id){
         
                   <div class="d-flex align-items-center">
                     <p class="fw-bold mb-0 me-5 pe-3">$${flower.Price.toFixed(2)}</p>
-        
-                    <div class="def-number-input number-input safari_only">
-                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                        class="minus"></button>
-                      <input class="quantity fw-bold text-black" min="0" name="quantity" value="1"
-                        type="number">
-                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                        class="plus"></button>
-                    </div>
                   </div>
                 </div>
               </div>`;
