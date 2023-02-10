@@ -10,6 +10,34 @@ const apiKey = 'keyNlBBq7AaqCM48y';
 //flower = 'tblb5xIIr65HVMKth';
 //login = 'tbl9r9dgjLVJOTffq';
 
+$("#news").on("click", function() {
+
+    //e.PreventDefault();
+    let email = $("#newsEmail").val();
+
+    console.log(email);
+    //Table = newsletter
+    let table = 'tblZJuwvbKUO4npdk';
+
+    //post email
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+        method: "post",
+        headers: myHeaders,
+        redirect: "follow",
+        body: JSON.stringify([{"email" : email}])
+        
+    };
+
+    fetch(`https://v1.nocodeapi.com/heheheha/airtable/BwYeNkanDmXJJuVy?tableName=newsletter`, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
+    alert("Subscribed!")
+})
+
 
 
 $("#login-submit").on("click", function() {

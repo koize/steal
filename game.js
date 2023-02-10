@@ -15,8 +15,6 @@ let loginTable = 'tbl9r9dgjLVJOTffq'
 console.log(userid)
 
 
-
-
 var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var requestOptions = {
@@ -35,9 +33,8 @@ var myHeaders = new Headers();
                     console.log("yes")
                     display = `
                     <div>
-                    <h3>Reedemable codes: </h3>
-                    <p>${data.fields.DiscName}<br> 
-                    ${data.fields.Code}</p>
+                    <h3>Reedemable discount: </h3>
+                    <p>${data.fields.DiscName}
                     </div>`
 
                     document.getElementById("codes").insertAdjacentHTML('beforeend', display);
