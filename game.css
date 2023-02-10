@@ -25,7 +25,7 @@
     transition: width 2s;
 }
 
-button {
+#start-btn {
     height: 100%;
     width: 100%;
 
