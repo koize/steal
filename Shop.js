@@ -102,12 +102,16 @@ function displayCart(table, id){
                   </div>
                 </div>
               </div>`;
-                
+
               totalPrice += flower.Price
                 //Put data into div
                 document.getElementById("cart").insertAdjacentHTML('beforeend', display);
                 }
             })
+            const CalTotal = `
+                    <h5 class="fw-bold mb-0">Total: $${totalPrice.toFixed(2)}</h5>
+                  `;
+                  document.getElementById("total").insertAdjacentHTML('beforeend', CalTotal);
         })
         .catch(error => console.log('error', error));
 }
