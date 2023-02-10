@@ -52,6 +52,10 @@ The purpose of using these fonts was to give off a modern and simplicity feel. A
 - Playfair Display (Product Type Titles)
 - Montserrat (Review cards)
 
+## Things that were not implemented
+
+- Clicking on the 'Buy Now' in the Cart Page does not work
+
 # Credits
 
 ## Homepage
