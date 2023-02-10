@@ -42,6 +42,15 @@
   text-shadow: 5px 5px 5px rgb(10, 16, 75);
 }
 
+.container, .reversed{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+ }
+
 @media (max-width: 720px) {
   .flex{
     flex: 0 100%;
