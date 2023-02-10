@@ -17,21 +17,50 @@ All products shown DO NOT belong to us, references will be given below!
 
 ## Software Used
 
-- Airtable
-- Canva
-- NoCode API
+- Airtable (Store all the products and user info)
+- Canva (For banner)
+- NoCode API (Used for POST and PUT)
+- Adobe XD (Wireframe)
+- Good Notes (Logo)
+- Visual Studio Code (Where all the coding is done)
+
+Link to Airtable : https://airtable.com/invite/l?inviteId=invteRgidh1PhqRju&inviteToken=c8f32b3051c98b6d3ab754702744343daf8e936e6e7994eec54e493417ccdfdb&utm_medium=email&utm_source=product_team&utm_content=transactional-alerts
 
 ## Colours Used
 
+The colour theme we've decided to go with was to give off a feeling of relaxation to our users since shopping could be a downtime for some. We didn't want to choose colours that were too bright that makes the user not have an enjoyable shopping experience. Hence, we chose a subtle colour that is able to make our product stand out individually and at the same time, allow users to have an enjoyable time shopping :D .
+
+- Background : rgb(255, 253, 247)
+- Nav Bar : rgba(66, 72, 116, 0.8)
+- Footer : rgba(66, 72, 116, 0.6)
+- Shop (Product Card) : rgb(249, 249, 249)
+- Shop (Card Button) : rgb(214, 230, 242)
+- Game (Background) : rgb(135, 206, 235)
+- Game (Background) : rgb(145, 238, 145)
+- Game (Health Bar) : rgb(255, 0, 0)
+- Game (Enemy) : rgb(126, 84, 41)
+- Game : rgb(125, 0, 0)
+- Rewards (text) : rgb(219, 232, 255)
+- Rewards (text shadow) : rgb(10, 16, 75)
+
 ## Fonts Used
 
-The purpose of using these fonts was to give off a modern feel. We also didn't want to make the website have hard to read words, thus choosing fonts that make reading to be easier for users.
+The purpose of using these fonts was to give off a modern and simplicity feel. Another factor we considered was not making the website hard to read, thus choosing fonts that make reading to be easier for users.
 
 - Noto Serif JP (Nav Bar)
 - Zen Kaku Gothic New (Product cards)
 - Playfair Display (Product Type Titles)
+- Montserrat (Review cards)
 
 # Credits
+
+## Homepage
+
+Banners and Logo were all created by ourselves! All files are saved under the folder : Images
+
+## Game
+
+Gameplay : https://www.youtube.com/watch?v=jPnlXp5KVFo
 
 ## Media : Shop
 
@@ -94,3 +123,7 @@ The purpose of using these fonts was to give off a modern feel. We also didn't w
 5. Flower Pot (Marble) : https://www.spotlightstores.com/sg/home-decor/floristry-greenery/floral-containers/botanica-white-terrazzo-planter-pot/BP80574719-white
 
 6. Flower Pot (Hanging) : https://www.ikea.com/sg/en/p cashewaepple-hanging-planter-in-outdoor-white-60468354/
+
+## Media : Rewards Page
+
+Background Img : https://www.countryliving.com/gardening/garden-ideas/g806/choosing-fragrant-flowers-0609/
