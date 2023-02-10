@@ -8,7 +8,7 @@ function iShoot(enemy){
 
     if (!livingEnemies().length)
     {
-        alert("You win")
+        alert("You win!")
 
         Reward();
         window.location.reload();
