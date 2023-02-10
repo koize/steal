@@ -109,7 +109,7 @@ function displayCart(table, id){
                 }
             })
             const CalTotal = `
-                    <h5 class="fw-bold mb-0">Total: $${totalPrice.toFixed(2)}</h5>
+                    <h5 class="fw-bold mb-0">$${totalPrice.toFixed(2)}</h5>
                   `;
                   document.getElementById("total").insertAdjacentHTML('beforeend', CalTotal);
         })
