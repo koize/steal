@@ -119,6 +119,7 @@ $("#register-submit").on("click", function() {
     }
 
     registerUser(Newname, Newemail, Newpassword);
+    alert("You have been registered! Please log in.")
 })
 
 function registerUser(name, email, password){
@@ -139,7 +140,7 @@ function registerUser(name, email, password){
         
     };
 
-    fetch(`${url}/${baseid}/${table}/?api_key=${apiKey}`, requestOptions)
+    fetch(`https://v1.nocodeapi.com/heheheha/airtable/BwYeNkanDmXJJuVy?tableName=Login`, requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));  
@@ -295,9 +296,8 @@ function AddtoCart(Productid, fromTable){
             }
           }])     
     };
-//https://v1.nocodeapi.com/heheheha/airtable/BwYeNkanDmXJJuVy?tableName=Login
     
-    fetch(`${url}/${baseid}/${table}/?api_key=${apiKey}`, requestOptions)
+    fetch(`https://v1.nocodeapi.com/heheheha/airtable/BwYeNkanDmXJJuVy?tableName=Login`, requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
