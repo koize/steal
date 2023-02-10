@@ -188,19 +188,39 @@
       }
     </style>
 
-    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="container px-4 px-md-5 text-center text-lg-start my-5">
       <div class="row gx-lg-5 align-items-center mb-5">
         <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
           <h1 class="outline my-5 display-5 fw-bold ls-tight" style="color: hsl(219, 100%, 93%)">
-            Welcome to</br>
+            Welcome to
             <span class="outline" style="color: hsl(219, 100%, 93%)">the Rewards page!</span>
           </h1>
           <h3 class="outline mb-4" style="color: hsl(219, 100%, 93%)">
             Play the whack a mole game and stand to win vouchers and discount codes!
           </h3>
         </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h1>How to Play?</h1>
+            <ol>
+              <li>Click on the game's frame to start playing</li>
+              <li>A mole will appear at random intervals. Click on it to protect the flowers!</li>
+              <li>Moles will cause your health bar to decrease. When you run out of health, you lose.</li>
+              <li>When there are no mole left, you win!</li>
+            </ol>
+
+            <div id="codes">
+              <!--codes owned by user-->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
+  <!-- Game-->
   <div id="gameFrame">
 
     <button id="start-btn" class="button" onclick="NewGame()" style="font-size: 30px;">Click to start a new game</button>

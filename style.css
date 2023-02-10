@@ -2,11 +2,11 @@
     padding: 20 !important;
   }
 .navbar{
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Montserrat', sans-serif;
   color: black;
 }
 .card{
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .sidenav-item{
   list-style-type: none;
