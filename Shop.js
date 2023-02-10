@@ -69,6 +69,8 @@ function displayCart(table, id){
             console.log(data)
             console.log(id)
             
+            var totalPrice = 0;
+
             data.forEach(data => {
 
                 if(data.id == id){
@@ -101,12 +103,11 @@ function displayCart(table, id){
                 </div>
               </div>`;
                 
-        
+              totalPrice += flower.Price
                 //Put data into div
-                document.getElementById("here").insertAdjacentHTML('beforeend', display);
+                document.getElementById("cart").insertAdjacentHTML('beforeend', display);
                 }
             })
         })
         .catch(error => console.log('error', error));
-
 }
