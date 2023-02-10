@@ -38,6 +38,10 @@
   margin: 15px;
 }
 
+.outline{
+  text-shadow: 5px 5px 5px rgb(10, 16, 75);
+}
+
 @media (max-width: 720px) {
   .flex{
     flex: 0 100%;
