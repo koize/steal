@@ -1,5 +1,5 @@
 # Assignment 2 : Hana No Yado
-
+hi
 ## Introduction
 
 Hana No Yado also known as The Flowering Inn is an e-commerce shop selling flower bouquets for special occasions and gardening essentials. The aim of this shop is to deliver spring conveniently to your doorstep and provide guidance for your gardening journey.
